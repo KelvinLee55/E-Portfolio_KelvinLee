@@ -2,7 +2,8 @@
 title: "Resume"
 ---
 
-# Education
+# Education 
+
 
 -   Master of Geomatics for Environmental Management (MGEM) | University of British Columbia | Vancouver, BC | 2026
 
