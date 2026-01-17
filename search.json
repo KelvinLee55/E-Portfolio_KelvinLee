@@ -1,0 +1,86 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Kelvin Lee",
+    "section": "",
+    "text": "My name is Kelvin Lee. I was raised in Hong Kong and moved to Vancouver, British Columbia, in 2025. I hold a bachelor’s degree in geography from Hong Kong Baptist University and a master’s degree in geomatics for environmental management from the University of British Columbia. My academic background has equipped me with a solid foundation in environmental systems, spatial analysis, and data-driven decision-making.\nMy professional experience spans environmental education, ecological fieldwork, and geospatial analysis. I supported public outreach and conservation education initiatives, communicating topics such as coral reef and wildlife conservation to diverse audiences. I also contributed to ecological surveys, plantation management, and biodiversity monitoring projects. In these roles, I worked with field data, developed practical guidelines, and applied geospatial tools to support ecosystem restoration efforts.\nMy interest in environmental sustainability is rooted in a long-standing connection with wildlife and plants, shaped through both academic training and hands-on experience. Outside of work, I enjoy camping and trekking, which allow me to engage closely with natural landscapes and connect with like-minded individuals. I am particularly intrigued by the impact of urban green spaces in shaping environmental quality, especially their complex and sometimes contrasting effects on air pollution.\nLooking ahead, I aim to further explore wildfire management challenges associated with the wildland-urban interface in remote islands, using geomatics and spatial analysis to better understand fuel characterization. I am motivated to apply my technical skills, field experience, and passion for nature toward developing practical and innovative solutions for fire-prone remote communities."
+  },
+  {
+    "objectID": "resume.html",
+    "href": "resume.html",
+    "title": "Resume",
+    "section": "",
+    "text": "Education\n\nMaster of Geomatics for Environmental Management (MGEM) | University of British Columbia | Vancouver, BC | 2026\nBachelor of Social Sciences in Geography (First Class Honours) | Hong Kong Baptist University | Hong Kong | 2025\nAssociate of Applied Sciences in Geography and Resources Management | Hong Kong Baptist University | Hong Kong | 2023\n\n\n\nProfessional Experience\n\nGraduate Mapping Assistant\nMudge Island Citizen’s Society (M.I.C.S) | Aug 2025 – Apr 2026\n\nI worked with the non-profit organization M.I.C.S., where I developed interactive disaster response maps using QGIS and QField. I worked with GeoTIFF orthophotos, LAS/LAZ LiDAR point clouds, and vector datasets (SHP, GeoJSON, KML), which supported field-based mapping and wildfire response planning.\n\nEcological Survey and Plantation Management Intern\nAgriculture, Fisheries and Conservation Department (AFCD), Hong Kong | Jun 2024 – Aug 2024\n\nIn my role as an intern at AFCD, I contributed to tree condition inspections for NGOs, developed a seedling planting guide, and applied geospatial and data management tools, including ArcGIS Pro, to analyze data from Plantation Enrichment Programme (PEP) pilot sites.\n\nEnvironmental Education Intern\nWorld Wide Fund for Nature (WWF), Hong Kong | Jun 2022 – Aug 2022\n\nI completed an internship at WWF, during which I communicated topics related to coral reef and tiger conservation through public talks and ecotours, and developed educational materials and standard operating procedures (SOPs). These experiences strengthened my presentation skills, ability to work independently, and resilience in fast-paced settings.\n\nField Investigator\nFood Grace, Hong Kong | Oct 2021 – Jan 2022\n\nI was offered employment at Food Grace to interview restaurant managers about food-waste management practices. This includes, but is not limited to, qualitative data collection, environmental reporting, and stakeholder communication. These efforts were translated into the sustainability assessment in different Hong Kong districts.\n\n\nPublications\nMajor Projects:\n\nLee, K. H. (2025). Fuel type mapping frosm Sentinel-2 multispectral imagery using a Convolutional Neural Network (CNN) classification framework: A case study on Mudge Island, British Columbia. [Unpublished research proposal]. University of British Columbia. View document\nLee, K. H. K. (2025). Evaluating the impact of urban parks on air quality enhancement in Hong Kong. [Honours project, Hong Kong Baptist University].\nView document\n\nReports:\n\nLee, K. L. (2025). How can pre-fire above-ground biomass (AGB) structure and burn-severity patterns guide fuel-management strategies in Coastal Douglas-fir (Pseudotsuga menziesii) forest ecosystems? [Unpublished research proposal]. University of British Columbia.\nView document\n\n\n\nConferences & Talks\nInvited Talks\n\nIf you’ve been invited to speak in a professional setting, list that here.\n\nConference Presentations\n\nIf the presentation was at a conference, list them here.\n\n\n\nAwards & Honors\n\nList any scholarships, bursaries, etc.\n\n\n\nTeaching Assistantships\n\nList any TA positions you may have held.\n\n\n\nCertifercate\n\n\n\n\n\nInstitutional Service\n\nVolunteering etc."
+  },
+  {
+    "objectID": "publications.html",
+    "href": "publications.html",
+    "title": "Publications",
+    "section": "",
+    "text": "Major Projects:\n\nLee, K. H. (2025). Fuel type mapping frosm Sentinel-2 multispectral imagery using a Convolutional Neural Network (CNN) classification framework: A case study on Mudge Island, British Columbia. [Unpublished research proposal]. University of British Columbia. View document\nLee, K. H. K. (2025). Evaluating the impact of urban parks on air quality enhancement in Hong Kong. [Honours project, Hong Kong Baptist University].\nView document\n\nReports:\n\nLee, K. L. (2025). How can pre-fire above-ground biomass (AGB) structure and burn-severity patterns guide fuel-management strategies in Coastal Douglas-fir (Pseudotsuga menziesii) forest ecosystems? [Unpublished research proposal]. University of British Columbia.\nView document"
+  },
+  {
+    "objectID": "content_development.html",
+    "href": "content_development.html",
+    "title": "Content & Deliverables",
+    "section": "",
+    "text": "Project Deliverable 1\nThis is a sample page where you can archive project deliverables."
+  },
+  {
+    "objectID": "content.html",
+    "href": "content.html",
+    "title": "Content & Deliverables",
+    "section": "",
+    "text": "This is a sample page where you can archive project deliverables. Every header you use will correspond to a tab in the legend - shown on the right-hand side of your screen (“On this page”).\nIf you’ve produced any GIS layers for your 599 project, this may be a good place to share them as interactive maps through leaflet. Alternatively, you can upload high-res figures showing correlations, box-plots, etc. from your report here, and provide a brief overview of key project results. If you have written some useful functions, you may also want to share those here to demonstrate proficiency in particular coding languages or synergies between notable coding packages.\n\n\nSample leaflet - for detailed leaflet instructions, visit the FCOR 599 workshop archive page here.\n\n\n\n\n\n\n\n\n\nSample code snippet. Notice that you can provide a toggle to switch between coding languages - this is referred to as a ‘tabset’ in quarto. It is good practice to try and convert your R code to python, and vice-versa to demonstrate coding proficiency. For example, let’s showcase a function for calculating NDVI in R and Python.\n\nRPython\n\n\ncalc_ndvi &lt;- function(nir, red){\n  ndvi &lt;- (nir-red)/(nir+red)\n  return(ndvi)\n}\n(Assuming nir and red are terra rast objects)\n\n\ndef calc_ndvi(nir, red): \n  ndvi = (nir - red)/(nir + red)\n  return(ndvi)\n(Assuming nir and red are numpy arrays)\n\n\n\n\n\n\nYou can also provide a frame linking to external websites. For example, here is a Google Earth Engine application I developed - which I embedded in this webpage using the code below:\n\n\n&lt;iframe width=\"900\" height=\"700\"\nsrc=\"https://ee-melserramon.projects.earthengine.app/view/thermal-analysis-tool\"&gt;\n&lt;/iframe&gt;\n\nThe full-screen GEE application is available here in case you’re interested.\n(To use the GEE tool, navigate to any city you’d like, hit apply filters, and click anywhere on the map to retrieve a time-series of Landsat surface temperature observations for that point. Areas where the maximum temp exceeded 35 degrees Celsius in your date-range are highlighted in red.)"
+  },
+  {
+    "objectID": "content.html#leaflet",
+    "href": "content.html#leaflet",
+    "title": "Content & Deliverables",
+    "section": "",
+    "text": "Sample leaflet - for detailed leaflet instructions, visit the FCOR 599 workshop archive page here."
+  },
+  {
+    "objectID": "content.html#code-snippets",
+    "href": "content.html#code-snippets",
+    "title": "Content & Deliverables",
+    "section": "",
+    "text": "Sample code snippet. Notice that you can provide a toggle to switch between coding languages - this is referred to as a ‘tabset’ in quarto. It is good practice to try and convert your R code to python, and vice-versa to demonstrate coding proficiency. For example, let’s showcase a function for calculating NDVI in R and Python.\n\nRPython\n\n\ncalc_ndvi &lt;- function(nir, red){\n  ndvi &lt;- (nir-red)/(nir+red)\n  return(ndvi)\n}\n(Assuming nir and red are terra rast objects)\n\n\ndef calc_ndvi(nir, red): \n  ndvi = (nir - red)/(nir + red)\n  return(ndvi)\n(Assuming nir and red are numpy arrays)"
+  },
+  {
+    "objectID": "content.html#external-links",
+    "href": "content.html#external-links",
+    "title": "Content & Deliverables",
+    "section": "",
+    "text": "You can also provide a frame linking to external websites. For example, here is a Google Earth Engine application I developed - which I embedded in this webpage using the code below:\n\n\n&lt;iframe width=\"900\" height=\"700\"\nsrc=\"https://ee-melserramon.projects.earthengine.app/view/thermal-analysis-tool\"&gt;\n&lt;/iframe&gt;\n\nThe full-screen GEE application is available here in case you’re interested.\n(To use the GEE tool, navigate to any city you’d like, hit apply filters, and click anywhere on the map to retrieve a time-series of Landsat surface temperature observations for that point. Areas where the maximum temp exceeded 35 degrees Celsius in your date-range are highlighted in red.)"
+  },
+  {
+    "objectID": "index.html#about-me",
+    "href": "index.html#about-me",
+    "title": "Kelvin Lee",
+    "section": "",
+    "text": "My name is Kelvin Lee. I was raised in Hong Kong and moved to Vancouver, British Columbia, in 2025. I hold a bachelor’s degree in geography from Hong Kong Baptist University and a master’s degree in geomatics for environmental management from the University of British Columbia. My academic background has equipped me with a solid foundation in environmental systems, spatial analysis, and data-driven decision-making.\nMy professional experience spans environmental education, ecological fieldwork, and geospatial analysis. I supported public outreach and conservation education initiatives, communicating topics such as coral reef and wildlife conservation to diverse audiences. I also contributed to ecological surveys, plantation management, and biodiversity monitoring projects. In these roles, I worked with field data, developed practical guidelines, and applied geospatial tools to support ecosystem restoration efforts.\nMy interest in environmental sustainability is rooted in a long-standing connection with wildlife and plants, shaped through both academic training and hands-on experience. Outside of work, I enjoy camping and trekking, which allow me to engage closely with natural landscapes and connect with like-minded individuals. I am particularly intrigued by the impact of urban green spaces in shaping environmental quality, especially their complex and sometimes contrasting effects on air pollution.\nLooking ahead, I aim to further explore wildfire management challenges associated with the wildland-urban interface in remote islands, using geomatics and spatial analysis to better understand fuel characterization. I am motivated to apply my technical skills, field experience, and passion for nature toward developing practical and innovative solutions for fire-prone remote communities."
+  },
+  {
+    "objectID": "Project.html",
+    "href": "Project.html",
+    "title": "Project",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "Project.html#quarto",
+    "href": "Project.html#quarto",
+    "title": "Project",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "Project.html#running-code",
+    "href": "Project.html#running-code",
+    "title": "Project",
+    "section": "Running Code",
+    "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
+  }
+]

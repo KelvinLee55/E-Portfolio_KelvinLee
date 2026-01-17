@@ -1,0 +1,74 @@
+---
+title: "Resume"
+---
+
+# Education
+
+-   Master of Geomatics for Environmental Management (MGEM) | University of British Columbia | Vancouver, BC | 2026
+
+-   Bachelor of Social Sciences in Geography (First Class Honours) | Hong Kong Baptist University | Hong Kong | 2025
+
+-   Associate of Applied Sciences in Geography and Resources Management | Hong Kong Baptist University | Hong Kong | 2023
+
+# Professional Experience
+
+* ### Graduate Mapping Assistant 
+**Mudge Island Citizen’s Society (M.I.C.S)** | *Aug 2025 – Apr 2026*
+
+I worked with the non-profit organization M.I.C.S., where I developed interactive disaster response maps using QGIS and QField. I worked with GeoTIFF orthophotos, LAS/LAZ LiDAR point clouds, and vector datasets (SHP, GeoJSON, KML), which supported field-based mapping and wildfire response planning.
+
+* ### Ecological Survey and Plantation Management Intern 
+**Agriculture, Fisheries and Conservation Department (AFCD), Hong Kong** | *Jun 2024 – Aug 2024*
+
+In my role as an intern at AFCD, I contributed to tree condition inspections for NGOs, developed a seedling planting guide, and applied geospatial and data management tools, including ArcGIS Pro, to analyze data from Plantation Enrichment Programme (PEP) pilot sites.
+
+* ### Environmental Education Intern 
+**World Wide Fund for Nature (WWF), Hong Kong** | *Jun 2022 – Aug 2022*
+
+I completed an internship at WWF, during which I communicated topics related to coral reef and tiger conservation through public talks and ecotours, and developed educational materials and standard operating procedures (SOPs). These experiences strengthened my presentation skills, ability to work independently, and resilience in fast-paced settings.
+
+* ### Field Investigator 
+**Food Grace, Hong Kong** | *Oct 2021 – Jan 2022*
+
+I was offered employment at Food Grace to interview restaurant managers about food-waste management practices.  This includes, but is not limited to, qualitative data collection, environmental reporting, and stakeholder communication. These efforts were translated into the sustainability assessment in different Hong Kong districts.
+
+# Publications
+
+*Major Projects:*
+
+-   **Lee, K. H. (2025).** *Fuel type mapping frosm Sentinel-2 multispectral imagery using a Convolutional Neural Network (CNN) classification framework: A case study on Mudge Island, British Columbia.* [Unpublished research proposal]. University of British Columbia. 
+[View document](https://1drv.ms/b/c/a6e118be0791bfa2/IQB_HjrTJRTOTbEe4RHMM9FdAVY1aLdk5KUUJevWlUXYg98?e=eTad01)
+
+-   **Lee, K. H. K. (2025).** *Evaluating the impact of urban parks on air quality enhancement in Hong Kong.* [Honours project, Hong Kong Baptist University].  
+[View document](https://1drv.ms/b/c/a6e118be0791bfa2/IQB23jztZIAYQbjC0pHanoEKAdpA8sO8R56MG4-snfiZlDk?e=nt4hTn)
+ 
+*Reports:*
+
+-   **Lee, K. L. (2025).** *How can pre-fire above-ground biomass (AGB) structure and burn-severity patterns guide fuel-management strategies in Coastal Douglas-fir (Pseudotsuga menziesii) forest ecosystems?* [Unpublished research proposal]. University of British Columbia.  
+[View document](https://1drv.ms/w/c/a6e118be0791bfa2/IQBStV2ZWltIRr1sW3izda5GAZ--YXvgT2mfJlhV3hTcYWs?e=EfaChv)
+
+# Conferences & Talks
+
+*Invited Talks*
+
+-   If you've been invited to speak in a professional setting, list that here.
+
+*Conference Presentations*
+
+-   If the presentation was at a conference, list them here.
+
+# Awards & Honors
+
+-   List any scholarships, bursaries, etc.
+
+# Teaching Assistantships
+
+-   List any TA positions you may have held.
+
+# Certifercate
+
+- 
+
+# Institutional Service
+
+-   Volunteering etc.

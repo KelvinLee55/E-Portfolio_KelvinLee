@@ -1,0 +1,27 @@
+---
+title: "Kelvin Lee"
+image: images/KelvinLee_Image.jpeg
+about:
+  template: trestles
+  image-width: 20em
+  links: 
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/ka-hong-kelvin-lee/
+    - icon: github
+      text: GitHub
+      href: https://github.com/KelvinLee55
+    - icon: envelope-at
+      text: Gmail
+      href: mailto:kahonglee5@gmail.com
+---
+
+## About me...
+
+My name is Kelvin Lee. I was raised in Hong Kong and moved to Vancouver, British Columbia, in 2025. I hold a bachelor’s degree in geography from Hong Kong Baptist University and a master’s degree in geomatics for environmental management from the University of British Columbia. My academic background has equipped me with a solid foundation in environmental systems, spatial analysis, and data-driven decision-making.
+
+My professional experience spans environmental education, ecological fieldwork, and geospatial analysis. I supported public outreach and conservation education initiatives, communicating topics such as coral reef and wildlife conservation to diverse audiences. I also contributed to ecological surveys, plantation management, and biodiversity monitoring projects. In these roles, I worked with field data, developed practical guidelines, and applied geospatial tools to support ecosystem restoration efforts.
+
+My interest in environmental sustainability is rooted in a long-standing connection with wildlife and plants, shaped through both academic training and hands-on experience. Outside of work, I enjoy camping and trekking, which allow me to engage closely with natural landscapes and connect with like-minded individuals. I am particularly intrigued by the impact of urban green spaces in shaping environmental quality, especially their complex and sometimes contrasting effects on air pollution.
+
+Looking ahead, I aim to further explore wildfire management challenges associated with the wildland-urban interface in remote islands, using geomatics and spatial analysis to better understand fuel characterization. I am motivated to apply my technical skills, field experience, and passion for nature toward developing practical and innovative solutions for fire-prone remote communities.
