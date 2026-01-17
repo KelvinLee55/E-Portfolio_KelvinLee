@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: D:\E-Portfolio
+  output-dir: D:\Github\E-Portfolio_KelvinLee
 
 website:
   title: "E-Portfolio"
