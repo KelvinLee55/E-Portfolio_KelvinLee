@@ -106,9 +106,9 @@ m <- leaflet(options = leafletOptions(preferCanvas = TRUE)) %>%
   addProviderTiles("Esri.WorldImagery", group = "Basemap") %>%
   
   ## --- Raster layers ---
-  addRasterImage(hill_raster, colors = hill_cols, opacity = 0.45, group = "Hillshade") %>%
-  addRasterImage(slope_raster, colors = slope_cols, opacity = 0.6, group = "Slope") %>%
-  addRasterImage(aspect_raster, colors = aspect_cols, opacity = 0.6, group = "Aspect") %>%
+  addRasterImage(hill_raster, colors = hill_cols, opacity = 0.80, group = "Hillshade") %>%
+  addRasterImage(slope_raster, colors = slope_cols, opacity = 0.80, group = "Slope") %>%
+  addRasterImage(aspect_raster, colors = aspect_cols, opacity = 0.80, group = "Aspect") %>%
   
   ## --- Vector layers ---
   addPolygons(
