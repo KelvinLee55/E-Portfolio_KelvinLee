@@ -12,7 +12,7 @@ website:
         text: Resume
       - href: content.qmd
         text: Content & Deliverables
-      - href: Publication.qmd
+      - href: publication.qmd
         text: Publication
 
 format:
