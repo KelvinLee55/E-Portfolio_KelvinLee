@@ -13,7 +13,7 @@ website:
       - href: content.qmd
         text: Content & Deliverables
       - href: publication.qmd
-        text: Publication
+        text: publication
 
  
 
