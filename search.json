@@ -1,122 +1,10 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Kelvin Lee",
-    "section": "",
-    "text": "My name is Kelvin Lee. I was raised in Hong Kong and moved to Vancouver, British Columbia, in 2025. I hold a bachelor’s degree in geography from Hong Kong Baptist University and a master’s degree in geomatics for environmental management from the University of British Columbia. My academic background has equipped me with a solid foundation in environmental systems, spatial analysis, and data-driven decision-making.\nMy professional experience spans environmental education, ecological fieldwork, and geospatial analysis. I supported public outreach and conservation education initiatives, communicating topics such as coral reef and wildlife conservation to diverse audiences. I also contributed to ecological surveys, plantation management, and biodiversity monitoring projects. In these roles, I worked with field data, developed practical guidelines, and applied geospatial tools to support ecosystem restoration efforts.\nMy interest in environmental sustainability is rooted in a long-standing connection with wildlife and plants, shaped through both academic training and hands-on experience. Outside of work, I enjoy camping and trekking, which allow me to engage closely with natural landscapes and connect with like-minded individuals. I am particularly intrigued by the impact of urban green spaces in shaping environmental quality, especially their complex and sometimes contrasting effects on air pollution.\nLooking ahead, I aim to further explore wildfire management challenges associated with the wildland-urban interface in remote islands, using geomatics and spatial analysis to better understand fuel characterization. I am motivated to apply my technical skills, field experience, and passion for nature toward developing practical and innovative solutions for fire-prone remote communities."
-  },
-  {
     "objectID": "resume.html",
     "href": "resume.html",
     "title": "Resume",
     "section": "",
     "text": "Education\n\nMaster of Geomatics for Environmental Management (MGEM) | University of British Columbia | Vancouver, BC | 2026\nBachelor of Social Sciences in Geography (First Class Honours) | Hong Kong Baptist University | Hong Kong | 2025\nAssociate of Applied Sciences in Geography and Resources Management | Hong Kong Baptist University | Hong Kong | 2023\n\n\n\nProfessional Experience\n\nGraduate Mapping Assistant\nMudge Island Citizen’s Society (M.I.C.S) | Aug 2025 – Apr 2026\n\nI worked with the non-profit organization M.I.C.S., where I developed interactive disaster response maps using QGIS and QField. I worked with GeoTIFF orthophotos, LAS/LAZ LiDAR point clouds, and vector datasets (SHP, GeoJSON, KML), which supported field-based mapping and wildfire response planning.\n\nEcological Survey and Plantation Management Intern\nAgriculture, Fisheries and Conservation Department (AFCD), Hong Kong | Jun 2024 – Aug 2024\n\nIn my role as an intern at AFCD, I contributed to tree condition inspections for NGOs, developed a seedling planting guide, and applied geospatial and data management tools, including ArcGIS Pro, to analyze data from Plantation Enrichment Programme (PEP) pilot sites.\n\nEnvironmental Education Intern\nWorld Wide Fund for Nature (WWF), Hong Kong | Jun 2022 – Aug 2022\n\nI completed an internship at WWF, during which I communicated topics related to coral reef and tiger conservation through public talks and ecotours, and developed educational materials and standard operating procedures (SOPs). These experiences strengthened my presentation skills, ability to work independently, and resilience in fast-paced settings.\n\nField Investigator\nFood Grace, Hong Kong | Oct 2021 – Jan 2022\n\nI was offered employment at Food Grace to interview restaurant managers about food-waste management practices. This includes, but is not limited to, qualitative data collection, environmental reporting, and stakeholder communication. These efforts were translated into the sustainability assessment in different Hong Kong districts.\n\n\nAwards & Honors\n\nMr. Yu Shao Shing Memorial Scholarship\n\n\n\nCertifercate\n\nCertificate Of Completion: Integrate Data with the FME Platform"
-  },
-  {
-    "objectID": "publications.html",
-    "href": "publications.html",
-    "title": "Publications",
-    "section": "",
-    "text": "Major Projects:\n\nLee, K. H. (2025). Fuel type mapping frosm Sentinel-2 multispectral imagery using a Convolutional Neural Network (CNN) classification framework: A case study on Mudge Island, British Columbia. [Unpublished research proposal]. University of British Columbia. View document\nLee, K. H. K. (2025). Evaluating the impact of urban parks on air quality enhancement in Hong Kong. [Honours project, Hong Kong Baptist University].\nView document\n\nReports:\n\nLee, K. L. (2025). How can pre-fire above-ground biomass (AGB) structure and burn-severity patterns guide fuel-management strategies in Coastal Douglas-fir (Pseudotsuga menziesii) forest ecosystems? [Unpublished research proposal]. University of British Columbia.\nView document\n\nCoursework:\n\nTo be added"
-  },
-  {
-    "objectID": "content_development.html",
-    "href": "content_development.html",
-    "title": "Content & Deliverables",
-    "section": "",
-    "text": "Project Deliverable 1\nThis is a sample page where you can archive project deliverables."
-  },
-  {
-    "objectID": "content.html",
-    "href": "content.html",
-    "title": "Content & Deliverables",
-    "section": "",
-    "text": "The aim of this project is to create an interactive map that is readily operable and accessible for Mudge Island residents and volunteers, particularly non-GIS users, in both online and offline circumstances. I set up a free QField account that people can use to update and review the map on their computers or phones anytime, anywhere. Map users can click to access the information they need, such as the precise location of water caches and evacuation points by boat or helicopter. This interactive map has proven invaluable in wildfire response decision-making and enhancing familiarity with the island’s environment. The map below is just a demo to show the map’s potential."
-  },
-  {
-    "objectID": "content.html#leaflet",
-    "href": "content.html#leaflet",
-    "title": "Content & Deliverables",
-    "section": "",
-    "text": "Sample leaflet - for detailed leaflet instructions, visit the FCOR 599 workshop archive page here."
-  },
-  {
-    "objectID": "content.html#code-snippets",
-    "href": "content.html#code-snippets",
-    "title": "Content & Deliverables",
-    "section": "Code Snippets",
-    "text": "Code Snippets\n\nRPython\n\n\nlibrary(terra)\n\n# Compute per-pixel agreement count (1–4)\nagree_count &lt;- app(ref_stack, fun = function(x) {\n  if (all(is.na(x))) return(NA)\n  tab &lt;- table(x)\n  return(max(tab))\n})\n\n# Compute modal (most common) class value\nagree_modal &lt;- app(ref_stack, fun = function(x) {\n  if (all(is.na(x))) return(NA)\n  tab &lt;- table(x)\n  return(as.numeric(names(which.max(tab))))\n})\n\n\nimport numpy as np\n\ndef compute_agreement(ref_stack):\n    bands, H, W = ref_stack.shape\n    flat = ref_stack.reshape(bands, -1)\n\n    agree_count = np.full(flat.shape[1], np.nan)\n    agree_modal = np.full(flat.shape[1], np.nan)\n\n    for i in range(flat.shape[1]):\n        x = flat[:, i]\n        x = x[~np.isnan(x)]\n        if x.size == 0:\n            continue\n\n        vals, cnts = np.unique(x, return_counts=True)\n        j = cnts.argmax()\n        \n        # Compute per-pixel agreement count (1–4)\n        agree_count[i] = cnts[j]\n        \n        # Compute modal (most common) class value\n        agree_modal[i] = vals[j]\n\n    return agree_count.reshape(H, W), agree_modal.reshape(H, W)"
-  },
-  {
-    "objectID": "content.html#external-links",
-    "href": "content.html#external-links",
-    "title": "Content & Deliverables",
-    "section": "",
-    "text": "You can also provide a frame linking to external websites. For example, here is a Google Earth Engine application I developed - which I embedded in this webpage using the code below:\n\n\n&lt;iframe width=\"900\" height=\"700\"\nsrc=\"https://ee-melserramon.projects.earthengine.app/view/thermal-analysis-tool\"&gt;\n&lt;/iframe&gt;\n\nThe full-screen GEE application is available here in case you’re interested.\n(To use the GEE tool, navigate to any city you’d like, hit apply filters, and click anywhere on the map to retrieve a time-series of Landsat surface temperature observations for that point. Areas where the maximum temp exceeded 35 degrees Celsius in your date-range are highlighted in red.)"
-  },
-  {
-    "objectID": "index.html#about-me",
-    "href": "index.html#about-me",
-    "title": "Kelvin Lee",
-    "section": "",
-    "text": "My name is Kelvin Lee. I was raised in Hong Kong and moved to Vancouver, British Columbia, in 2025. I hold a bachelor’s degree in geography from Hong Kong Baptist University and a master’s degree in geomatics for environmental management from the University of British Columbia. My academic background has equipped me with a solid foundation in environmental systems, spatial analysis, and data-driven decision-making.\nMy professional experience spans environmental education, ecological fieldwork, and geospatial analysis. I supported public outreach and conservation education initiatives, communicating topics such as coral reef and wildlife conservation to diverse audiences. I also contributed to ecological surveys, plantation management, and biodiversity monitoring projects. In these roles, I worked with field data, developed practical guidelines, and applied geospatial tools to support ecosystem restoration efforts.\nMy interest in environmental sustainability is rooted in a long-standing connection with wildlife and plants, shaped through both academic training and hands-on experience. Outside of work, I enjoy camping and trekking, which allow me to engage closely with natural landscapes and connect with like-minded individuals. I am particularly intrigued by the impact of urban green spaces in shaping environmental quality, especially their complex and sometimes contrasting effects on air pollution.\nLooking ahead, I aim to further explore wildfire management challenges associated with the wildland-urban interface in remote islands, using geomatics and spatial analysis to better understand fuel characterization. I am motivated to apply my technical skills, field experience, and passion for nature toward developing practical and innovative solutions for fire-prone remote communities."
-  },
-  {
-    "objectID": "Project.html",
-    "href": "Project.html",
-    "title": "Project",
-    "section": "",
-    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
-  },
-  {
-    "objectID": "Project.html#quarto",
-    "href": "Project.html#quarto",
-    "title": "Project",
-    "section": "",
-    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
-  },
-  {
-    "objectID": "Project.html#running-code",
-    "href": "Project.html#running-code",
-    "title": "Project",
-    "section": "Running Code",
-    "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
-  },
-  {
-    "objectID": "content.html#preliminary-fuel-type-map",
-    "href": "content.html#preliminary-fuel-type-map",
-    "title": "Content & Deliverables",
-    "section": "Preliminary Fuel Type Map",
-    "text": "Preliminary Fuel Type Map\nIn this project, I used a 15-band composite derived from 12 Sentinel-2 bands and 3 vegetation indices (NDVI, EVI, and NDWI) as a predictor and integrated four reference land cover maps (CCRS, CFS, VRI, and AAFC) into a high-confidence ground-truth map, where each class is agreed upon by at least three out of four sources. The one-directional convolutional neural network (1D-CNN) identifies each pixel by looking at its unique “color signature” across 15 layers of light and calculating a percentage score for each category; it then assigns the pixel to the class that gets the highest percentage, representing its best and most confident guess."
-  },
-  {
-    "objectID": "content.html#biophysical-inputs-biomass-dryness-indices",
-    "href": "content.html#biophysical-inputs-biomass-dryness-indices",
-    "title": "Content & Deliverables",
-    "section": "Biophysical Inputs: Biomass & Dryness indices",
-    "text": "Biophysical Inputs: Biomass & Dryness indices\nI also integrated two biophysical features into my preliminary fuel type map. The above-ground tree biomass map was reclassified into three classes: low (0–150 tons/ha), medium (150–350 tons/ha), and high (&gt; 350 tons/ha) biomass. Sentinel-2 spectral bands (B03, BO8), topographic data (DEM, Slope), and PRISM climatic variables (MAT, MAP) were utilized to derive the dryness index and then reclassified into three fuel moisture classes: moist (0.00–0.30), moderate (0.30–0.60), and dry (0.60–1.00). Subsequently, I combined these two maps into a 9-class Biomass-Dryness (BD) Map."
-  },
-  {
-    "objectID": "content.html#code-snippets-1",
-    "href": "content.html#code-snippets-1",
-    "title": "Content & Deliverables",
-    "section": "Code Snippets",
-    "text": "Code Snippets\n\nRPython\n\n\n# Combine into Dryness Index (weights sum ≈ 1)\ndryness &lt;- (0.30 * mat_n) +\n  (0.25 * slope_n) +\n  (0.20 * map_n) +\n  (0.15 * ndwi_n) +\n  (0.10 * dem_n)\n\n# Normalize to 0–1\ndryness &lt;- normalize(dryness)\n\n\nimport numpy as np\n\n# Combine into Dryness Index (same weights as R)\ndryness = (\n    0.30 * mat_n +\n    0.25 * slope_n +\n    0.20 * map_n +\n    0.15 * ndwi_n +\n    0.10 * dem_n\n)\n\n# Min–max normalization (terra::normalize equivalent)\nmin_val = np.nanmin(dryness)\nmax_val = np.nanmax(dryness)\n\ndryness = (dryness - min_val) / (max_val - min_val)"
-  },
-  {
-    "objectID": "content.html#refined-fuel-model-map",
-    "href": "content.html#refined-fuel-model-map",
-    "title": "Content & Deliverables",
-    "section": "Refined Fuel Model Map",
-    "text": "Refined Fuel Model Map\nThe final fuel type map was generated by first filtering out unburnable areas, such as water and urban surfaces. Next, I employed CNN-based unmixing to identify specific vegetation patterns (e.g., Conifer (CF) & Broadleaf (BL)) and “mixed” classes (e.g., Grass-Shrub (GS) & Timber-Shrub-Grass (TSG)). This vegetation data was combined with a BD9 map, which classifies the landscape into nine categories based on biomass levels and dryness. Eventually, the decision matrix cross-references these two layers through a lookup table to assign each pixel a standardized fire behavior code from the Scott and Burgan (2005) system."
-  },
-  {
-    "objectID": "content.html#code-snippets-2",
-    "href": "content.html#code-snippets-2",
-    "title": "Content & Deliverables",
-    "section": "Code Snippets",
-    "text": "Code Snippets\n\nRPython\n\n\n# Build Lookup table\nlookup &lt;- list(\n  \n  BL = c(\"Dry-Low\"=fuel_ids$TL2, \"Dry-Medium\"=fuel_ids$TL6, \"Dry-High\"=fuel_ids$TL9, \"Moderate-Low\"=fuel_ids$TL2, \"Moderate-Medium\"=fuel_ids$TL6, \"Moderate-High\"=fuel_ids$TL9, \"Moist-Low\"=fuel_ids$TL2, \"Moist-Medium\"=fuel_ids$TL6, \"Moist-High\"=fuel_ids$TL9),\n  \n  CF = c(\"Dry-Low\"=fuel_ids$TL1, \"Dry-Medium\"=fuel_ids$TL3, \"Dry-High\"=fuel_ids$TL5, \"Moderate-Low\"=fuel_ids$TL1, \"Moderate-Medium\"=fuel_ids$TL3, \"Moderate-High\"=fuel_ids$TL5, \"Moist-Low\"=fuel_ids$TL1, \"Moist-Medium\"=fuel_ids$TL3, \"Moist-High\"=fuel_ids$TL5),\n  \n  SH = c(\"Dry-Low\"=fuel_ids$SH2, \"Dry-Medium\"=fuel_ids$SH5, \"Dry-High\"=fuel_ids$SH7, \"Moderate-Low\"=fuel_ids$SH6, \"Moderate-Medium\"=fuel_ids$SH3, \"Moderate-High\"=fuel_ids$SH9, \"Moist-Low\"=fuel_ids$SH6, \"Moist-Medium\"=fuel_ids$SH3, \"Moist-High\"=fuel_ids$SH9),\n  \n  ...\n\n\n# Build Lookup table\nlookup = {\n\n    \"BL\": {\"Dry-Low\": fuel_ids[\"TL2\"], \"Dry-Medium\": fuel_ids[\"TL6\"], \"Dry-High\": fuel_ids[\"TL9\"], \"Moderate-Low\": fuel_ids[\"TL2\"], \"Moderate-Medium\": fuel_ids[\"TL6\"], \"Moderate-High\": fuel_ids[\"TL9\"], \"Moist-Low\": fuel_ids[\"TL2\"], \"Moist-Medium\": fuel_ids[\"TL6\"], \"Moist-High\": fuel_ids[\"TL9\"]},\n\n    \"CF\": {\"Dry-Low\": fuel_ids[\"TL1\"], \"Dry-Medium\": fuel_ids[\"TL3\"], \"Dry-High\": fuel_ids[\"TL5\"], \"Moderate-Low\": fuel_ids[\"TL1\"], \"Moderate-Medium\": fuel_ids[\"TL3\"], \"Moderate-High\": fuel_ids[\"TL5\"], \"Moist-Low\": fuel_ids[\"TL1\"], \"Moist-Medium\": fuel_ids[\"TL3\"], \"Moist-High\": fuel_ids[\"TL5\"]},\n\n    \"SH\": {\"Dry-Low\": fuel_ids[\"SH2\"], \"Dry-Medium\": fuel_ids[\"SH5\"], \"Dry-High\": fuel_ids[\"SH7\"], \"Moderate-Low\": fuel_ids[\"SH6\"], \"Moderate-Medium\": fuel_ids[\"SH3\"], \"Moderate-High\": fuel_ids[\"SH9\"], \"Moist-Low\": fuel_ids[\"SH6\"], \"Moist-Medium\": fuel_ids[\"SH3\"], \"Moist-High\": fuel_ids[\"SH9\"]},\n    \n    ..."
   },
   {
     "objectID": "Maps_Kelvin/Map_Data/FinalMap.html",
@@ -154,18 +42,67 @@
     "text": "Connect Map & Control Panel  + Display the Map\n\ninteractive = widgets.interactive_output(update_map, {**sliders, **toggles}) # build connection between the slider bar and the map, so that's how the change in the slider actually affect the map display\n# however, that means everytime we adjust the slider, a new set of values are put into the function, so the whole function will run again. that's why we need a clear_output() above.\n# widgets.interactive_output(function, controls) where controls MUST be a DICTIONARY, the function will know how to match the parameters by the KEYs in the control dictionary. \ndisplay(sliders_box, output) # show slider_box and the output(map + table) in sequence"
   },
   {
-    "objectID": "Publications.html",
-    "href": "Publications.html",
-    "title": "Publications",
+    "objectID": "content.html",
+    "href": "content.html",
+    "title": "Content & Deliverables",
     "section": "",
-    "text": "Major Projects:\n\nLee, K. H. (2025). Fuel type mapping frosm Sentinel-2 multispectral imagery using a Convolutional Neural Network (CNN) classification framework: A case study on Mudge Island, British Columbia. [Unpublished research proposal]. University of British Columbia. View document\nLee, K. H. K. (2025). Evaluating the impact of urban parks on air quality enhancement in Hong Kong. [Honours project, Hong Kong Baptist University].\nView document\n\nReports:\n\nLee, K. L. (2025). How can pre-fire above-ground biomass (AGB) structure and burn-severity patterns guide fuel-management strategies in Coastal Douglas-fir (Pseudotsuga menziesii) forest ecosystems? [Unpublished research proposal]. University of British Columbia.\nView document\n\nCoursework:\n\nTo be added"
+    "text": "The aim of this project is to create an interactive map that is readily operable and accessible for Mudge Island residents and volunteers, particularly non-GIS users, in both online and offline circumstances. I set up a free QField account that people can use to update and review the map on their computers or phones anytime, anywhere. Map users can click to access the information they need, such as the precise location of water caches and evacuation points by boat or helicopter. This interactive map has proven invaluable in wildfire response decision-making and enhancing familiarity with the island’s environment. The map below is just a demo to show the map’s potential."
   },
   {
-    "objectID": "Publication.html",
-    "href": "Publication.html",
-    "title": "Publication",
+    "objectID": "content.html#preliminary-fuel-type-map",
+    "href": "content.html#preliminary-fuel-type-map",
+    "title": "Content & Deliverables",
+    "section": "Preliminary Fuel Type Map",
+    "text": "Preliminary Fuel Type Map\nIn this project, I used a 15-band composite derived from 12 Sentinel-2 bands and 3 vegetation indices (NDVI, EVI, and NDWI) as a predictor and integrated four reference land cover maps (CCRS, CFS, VRI, and AAFC) into a high-confidence ground-truth map, where each class is agreed upon by at least three out of four sources. The one-directional convolutional neural network (1D-CNN) identifies each pixel by looking at its unique “color signature” across 15 layers of light and calculating a percentage score for each category; it then assigns the pixel to the class that gets the highest percentage, representing its best and most confident guess."
+  },
+  {
+    "objectID": "content.html#code-snippets",
+    "href": "content.html#code-snippets",
+    "title": "Content & Deliverables",
+    "section": "Code Snippets",
+    "text": "Code Snippets\n\nRPython\n\n\nlibrary(terra)\n\n# Compute per-pixel agreement count (1–4)\nagree_count &lt;- app(ref_stack, fun = function(x) {\n  if (all(is.na(x))) return(NA)\n  tab &lt;- table(x)\n  return(max(tab))\n})\n\n# Compute modal (most common) class value\nagree_modal &lt;- app(ref_stack, fun = function(x) {\n  if (all(is.na(x))) return(NA)\n  tab &lt;- table(x)\n  return(as.numeric(names(which.max(tab))))\n})\n\n\nimport numpy as np\n\ndef compute_agreement(ref_stack):\n    bands, H, W = ref_stack.shape\n    flat = ref_stack.reshape(bands, -1)\n\n    agree_count = np.full(flat.shape[1], np.nan)\n    agree_modal = np.full(flat.shape[1], np.nan)\n\n    for i in range(flat.shape[1]):\n        x = flat[:, i]\n        x = x[~np.isnan(x)]\n        if x.size == 0:\n            continue\n\n        vals, cnts = np.unique(x, return_counts=True)\n        j = cnts.argmax()\n        \n        # Compute per-pixel agreement count (1–4)\n        agree_count[i] = cnts[j]\n        \n        # Compute modal (most common) class value\n        agree_modal[i] = vals[j]\n\n    return agree_count.reshape(H, W), agree_modal.reshape(H, W)"
+  },
+  {
+    "objectID": "content.html#biophysical-inputs-biomass-dryness-indices",
+    "href": "content.html#biophysical-inputs-biomass-dryness-indices",
+    "title": "Content & Deliverables",
+    "section": "Biophysical Inputs: Biomass & Dryness indices",
+    "text": "Biophysical Inputs: Biomass & Dryness indices\nI also integrated two biophysical features into my preliminary fuel type map. The above-ground tree biomass map was reclassified into three classes: low (0–150 tons/ha), medium (150–350 tons/ha), and high (&gt; 350 tons/ha) biomass. Sentinel-2 spectral bands (B03, BO8), topographic data (DEM, Slope), and PRISM climatic variables (MAT, MAP) were utilized to derive the dryness index and then reclassified into three fuel moisture classes: moist (0.00–0.30), moderate (0.30–0.60), and dry (0.60–1.00). Subsequently, I combined these two maps into a 9-class Biomass-Dryness (BD) Map."
+  },
+  {
+    "objectID": "content.html#code-snippets-1",
+    "href": "content.html#code-snippets-1",
+    "title": "Content & Deliverables",
+    "section": "Code Snippets",
+    "text": "Code Snippets\n\nRPython\n\n\n# Combine into Dryness Index (weights sum ≈ 1)\ndryness &lt;- (0.30 * mat_n) +\n  (0.25 * slope_n) +\n  (0.20 * map_n) +\n  (0.15 * ndwi_n) +\n  (0.10 * dem_n)\n\n# Normalize to 0–1\ndryness &lt;- normalize(dryness)\n\n\nimport numpy as np\n\n# Combine into Dryness Index (same weights as R)\ndryness = (\n    0.30 * mat_n +\n    0.25 * slope_n +\n    0.20 * map_n +\n    0.15 * ndwi_n +\n    0.10 * dem_n\n)\n\n# Min–max normalization (terra::normalize equivalent)\nmin_val = np.nanmin(dryness)\nmax_val = np.nanmax(dryness)\n\ndryness = (dryness - min_val) / (max_val - min_val)"
+  },
+  {
+    "objectID": "content.html#refined-fuel-model-map",
+    "href": "content.html#refined-fuel-model-map",
+    "title": "Content & Deliverables",
+    "section": "Refined Fuel Model Map",
+    "text": "Refined Fuel Model Map\nThe final fuel type map was generated by first filtering out unburnable areas, such as water and urban surfaces. Next, I employed CNN-based unmixing to identify specific vegetation patterns (e.g., Conifer (CF) & Broadleaf (BL)) and “mixed” classes (e.g., Grass-Shrub (GS) & Timber-Shrub-Grass (TSG)). This vegetation data was combined with a BD9 map, which classifies the landscape into nine categories based on biomass levels and dryness. Eventually, the decision matrix cross-references these two layers through a lookup table to assign each pixel a standardized fire behavior code from the Scott and Burgan (2005) system."
+  },
+  {
+    "objectID": "content.html#code-snippets-2",
+    "href": "content.html#code-snippets-2",
+    "title": "Content & Deliverables",
+    "section": "Code Snippets",
+    "text": "Code Snippets\n\nRPython\n\n\n# Build Lookup table\nlookup &lt;- list(\n  \n  BL = c(\"Dry-Low\"=fuel_ids$TL2, \"Dry-Medium\"=fuel_ids$TL6, \"Dry-High\"=fuel_ids$TL9, \"Moderate-Low\"=fuel_ids$TL2, \"Moderate-Medium\"=fuel_ids$TL6, \"Moderate-High\"=fuel_ids$TL9, \"Moist-Low\"=fuel_ids$TL2, \"Moist-Medium\"=fuel_ids$TL6, \"Moist-High\"=fuel_ids$TL9),\n  \n  CF = c(\"Dry-Low\"=fuel_ids$TL1, \"Dry-Medium\"=fuel_ids$TL3, \"Dry-High\"=fuel_ids$TL5, \"Moderate-Low\"=fuel_ids$TL1, \"Moderate-Medium\"=fuel_ids$TL3, \"Moderate-High\"=fuel_ids$TL5, \"Moist-Low\"=fuel_ids$TL1, \"Moist-Medium\"=fuel_ids$TL3, \"Moist-High\"=fuel_ids$TL5),\n  \n  SH = c(\"Dry-Low\"=fuel_ids$SH2, \"Dry-Medium\"=fuel_ids$SH5, \"Dry-High\"=fuel_ids$SH7, \"Moderate-Low\"=fuel_ids$SH6, \"Moderate-Medium\"=fuel_ids$SH3, \"Moderate-High\"=fuel_ids$SH9, \"Moist-Low\"=fuel_ids$SH6, \"Moist-Medium\"=fuel_ids$SH3, \"Moist-High\"=fuel_ids$SH9),\n  \n  ...\n\n\n# Build Lookup table\nlookup = {\n\n    \"BL\": {\"Dry-Low\": fuel_ids[\"TL2\"], \"Dry-Medium\": fuel_ids[\"TL6\"], \"Dry-High\": fuel_ids[\"TL9\"], \"Moderate-Low\": fuel_ids[\"TL2\"], \"Moderate-Medium\": fuel_ids[\"TL6\"], \"Moderate-High\": fuel_ids[\"TL9\"], \"Moist-Low\": fuel_ids[\"TL2\"], \"Moist-Medium\": fuel_ids[\"TL6\"], \"Moist-High\": fuel_ids[\"TL9\"]},\n\n    \"CF\": {\"Dry-Low\": fuel_ids[\"TL1\"], \"Dry-Medium\": fuel_ids[\"TL3\"], \"Dry-High\": fuel_ids[\"TL5\"], \"Moderate-Low\": fuel_ids[\"TL1\"], \"Moderate-Medium\": fuel_ids[\"TL3\"], \"Moderate-High\": fuel_ids[\"TL5\"], \"Moist-Low\": fuel_ids[\"TL1\"], \"Moist-Medium\": fuel_ids[\"TL3\"], \"Moist-High\": fuel_ids[\"TL5\"]},\n\n    \"SH\": {\"Dry-Low\": fuel_ids[\"SH2\"], \"Dry-Medium\": fuel_ids[\"SH5\"], \"Dry-High\": fuel_ids[\"SH7\"], \"Moderate-Low\": fuel_ids[\"SH6\"], \"Moderate-Medium\": fuel_ids[\"SH3\"], \"Moderate-High\": fuel_ids[\"SH9\"], \"Moist-Low\": fuel_ids[\"SH6\"], \"Moist-Medium\": fuel_ids[\"SH3\"], \"Moist-High\": fuel_ids[\"SH9\"]},\n    \n    ..."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Kelvin Lee",
     "section": "",
-    "text": "Major Projects:\n\nLee, K. H. (2025). Fuel type mapping frosm Sentinel-2 multispectral imagery using a Convolutional Neural Network (CNN) classification framework: A case study on Mudge Island, British Columbia. [Unpublished research proposal]. University of British Columbia. View document\nLee, K. H. K. (2025). Evaluating the impact of urban parks on air quality enhancement in Hong Kong. [Honours project, Hong Kong Baptist University].\nView document\n\nReports:\n\nLee, K. L. (2025). How can pre-fire above-ground biomass (AGB) structure and burn-severity patterns guide fuel-management strategies in Coastal Douglas-fir (Pseudotsuga menziesii) forest ecosystems? [Unpublished research proposal]. University of British Columbia.\nView document\n\nCoursework:\n\nTo be added"
+    "text": "My name is Kelvin Lee. I was raised in Hong Kong and moved to Vancouver, British Columbia, in 2025. I hold a bachelor’s degree in geography from Hong Kong Baptist University and a master’s degree in geomatics for environmental management from the University of British Columbia. My academic background has equipped me with a solid foundation in environmental systems, spatial analysis, and data-driven decision-making.\nMy professional experience spans environmental education, ecological fieldwork, and geospatial analysis. I supported public outreach and conservation education initiatives, communicating topics such as coral reef and wildlife conservation to diverse audiences. I also contributed to ecological surveys, plantation management, and biodiversity monitoring projects. In these roles, I worked with field data, developed practical guidelines, and applied geospatial tools to support ecosystem restoration efforts.\nMy interest in environmental sustainability is rooted in a long-standing connection with wildlife and plants, shaped through both academic training and hands-on experience. Outside of work, I enjoy camping and trekking, which allow me to engage closely with natural landscapes and connect with like-minded individuals. I am particularly intrigued by the impact of urban green spaces in shaping environmental quality, especially their complex and sometimes contrasting effects on air pollution.\nLooking ahead, I aim to further explore wildfire management challenges associated with the wildland-urban interface in remote islands, using geomatics and spatial analysis to better understand fuel characterization. I am motivated to apply my technical skills, field experience, and passion for nature toward developing practical and innovative solutions for fire-prone remote communities."
+  },
+  {
+    "objectID": "index.html#about-me",
+    "href": "index.html#about-me",
+    "title": "Kelvin Lee",
+    "section": "",
+    "text": "My name is Kelvin Lee. I was raised in Hong Kong and moved to Vancouver, British Columbia, in 2025. I hold a bachelor’s degree in geography from Hong Kong Baptist University and a master’s degree in geomatics for environmental management from the University of British Columbia. My academic background has equipped me with a solid foundation in environmental systems, spatial analysis, and data-driven decision-making.\nMy professional experience spans environmental education, ecological fieldwork, and geospatial analysis. I supported public outreach and conservation education initiatives, communicating topics such as coral reef and wildlife conservation to diverse audiences. I also contributed to ecological surveys, plantation management, and biodiversity monitoring projects. In these roles, I worked with field data, developed practical guidelines, and applied geospatial tools to support ecosystem restoration efforts.\nMy interest in environmental sustainability is rooted in a long-standing connection with wildlife and plants, shaped through both academic training and hands-on experience. Outside of work, I enjoy camping and trekking, which allow me to engage closely with natural landscapes and connect with like-minded individuals. I am particularly intrigued by the impact of urban green spaces in shaping environmental quality, especially their complex and sometimes contrasting effects on air pollution.\nLooking ahead, I aim to further explore wildfire management challenges associated with the wildland-urban interface in remote islands, using geomatics and spatial analysis to better understand fuel characterization. I am motivated to apply my technical skills, field experience, and passion for nature toward developing practical and innovative solutions for fire-prone remote communities."
   },
   {
     "objectID": "publication.html",

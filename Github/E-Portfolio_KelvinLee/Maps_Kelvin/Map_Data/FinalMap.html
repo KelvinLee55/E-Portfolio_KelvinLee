@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Set up + Load Data ## – E-Portfolio</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-ffa9a6279353761231ec249df0a7fdd3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">E-Portfolio</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../resume.html"> 
+<span class="menu-text">Resume</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../content.html"> 
+<span class="menu-text">Content &amp; Deliverables</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../publication.html"> 
+<span class="menu-text">Publication</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#slider-weight-control" id="toc-slider-weight-control" class="nav-link active" data-scroll-target="#slider-weight-control">Slider + Weight Control</a></li>
+  <li><a href="#normalize-criteria-compute-suitability" id="toc-normalize-criteria-compute-suitability" class="nav-link" data-scroll-target="#normalize-criteria-compute-suitability">Normalize Criteria &amp; Compute Suitability</a></li>
+  <li><a href="#build-interactive-map-function" id="toc-build-interactive-map-function" class="nav-link" data-scroll-target="#build-interactive-map-function">Build Interactive Map Function</a></li>
+  <li><a href="#connect-map-control-panel-display-the-map" id="toc-connect-map-control-panel-display-the-map" class="nav-link" data-scroll-target="#connect-map-control-panel-display-the-map">Connect Map &amp; Control Panel <br> + Display the Map</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Set up + Load Data ##</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div id="06f19663-c39f-4b42-9dfb-4b767bc161fd" class="cell" data-execution_count="186">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># try run this if the following import doesn't work ! otherwise ask CharGPT! </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># commenting out the package you already have saves some time maybe......</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install numpy</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install pandas</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install geopandas</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install branca</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install folium</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install ipywidgets</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: branca in c:\users\zj1026.stu\appdata\roaming\python\python311\site-packages (0.8.2)
+Requirement already satisfied: jinja2&gt;=3 in c:\users\zj1026.stu\appdata\roaming\python\python311\site-packages (from branca) (3.1.6)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in c:\program files\arcgis\pro\bin\python\envs\arcgispro-py3\lib\site-packages (from jinja2&gt;=3-&gt;branca) (3.0.2)</code></pre>
+</div>
+</div>
+<div id="2e31ac1f-9530-4e3c-95e0-ed0a37eabd19" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> folium</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> ipywidgets <span class="im">as</span> widgets</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipywidgets <span class="im">import</span> GridBox, Layout</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> folium.features <span class="im">import</span> GeoJsonTooltip</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> folium.features <span class="im">import</span> CustomIcon</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> folium.plugins <span class="im">import</span> MeasureControl</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, clear_output, HTML</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> branca.colormap <span class="im">import</span> LinearColormap</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="d1a5051e-600a-4c4b-befb-67aa41136c94" class="cell" data-execution_count="32">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Path to shapefile + open</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>DA <span class="op">=</span> <span class="vs">r"C:</span><span class="er">\</span><span class="vs">Users</span><span class="er">\</span><span class="vs">zj1026</span><span class="dv">.</span><span class="vs">stu</span><span class="er">\</span><span class="vs">OneDrive - UBC</span><span class="er">\</span><span class="vs">FCOR599</span><span class="er">\</span><span class="vs">Term1Presentation</span><span class="er">\</span><span class="vs">Output_Data</span><span class="dv">\G</span><span class="vs">Van_DA_Final</span><span class="dv">.</span><span class="vs">shp"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>gpdDA <span class="op">=</span> gpd.read_file(DA)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># speed up calculation (from chatGPT): </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>gpdDA <span class="op">=</span> gpdDA.drop(columns<span class="op">=</span>[<span class="st">"DGUID"</span>,<span class="st">"PRUID"</span>,<span class="st">"LANDAREA"</span>])</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>gpdDA[<span class="st">"geometry"</span>] <span class="op">=</span> gpdDA.geometry.simplify(<span class="dv">20</span>, preserve_topology<span class="op">=</span><span class="va">True</span>) <span class="co"># preserve_topology=True to avoid self-intersection issues.</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># do this before reprojection otherwise the 20 will be in degree, not in meters</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>ID <span class="op">=</span> <span class="st">"DAUID"</span> <span class="co"># ID column</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Reprojection</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> gpdDA.crs <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> <span class="kw">and</span> gpdDA.crs.to_epsg() <span class="op">!=</span> <span class="dv">4326</span>:</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    gpdDA <span class="op">=</span> gpdDA.to_crs(epsg<span class="op">=</span><span class="dv">4326</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>gpdDA[<span class="st">"centroid"</span>] <span class="op">=</span> gpdDA.geometry.centroid <span class="co"># do the centroid after the reprojection to get the correct position for centroid points, </span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># because it's basically a calculated coordinate for the geometry that you already have. if you do this before reprojection, the geometry shift while the coordiates remains the same as before reprojection</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Define criteria </span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>criteria <span class="op">=</span> [<span class="st">'CBDDis'</span>,<span class="st">'StopDis'</span>,<span class="st">'popdensity'</span>,<span class="st">'H_maintain'</span>,<span class="st">'H_rent'</span>,<span class="st">'green_dens'</span>,<span class="st">'H_edu'</span>,<span class="st">'Age_'</span>,<span class="st">'Unemploy_R'</span>,<span class="st">'MedianInc'</span>,<span class="st">'DIST_Coast'</span>,<span class="st">'dis_scho'</span>,<span class="st">'dis_medi'</span>,<span class="st">'SurfaceT'</span>,<span class="st">'PM2_5_Mean'</span>,<span class="st">'CrimeRate'</span>]</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>cost_criteria <span class="op">=</span> [<span class="st">'StopDis'</span>,<span class="st">'H_maintain'</span>,<span class="st">'H_rent'</span>,<span class="st">'Unemploy_R'</span>,<span class="st">'dis_scho'</span>,<span class="st">'dis_medi'</span>,<span class="st">'SurfaceT'</span>,<span class="st">'PM2_5_Mean'</span>,<span class="st">'CrimeRate'</span>]  <span class="co"># currently all are "the smaller, the better"</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>benefit_criteria <span class="op">=</span> [<span class="st">'green_dens'</span>,<span class="st">'H_edu'</span>] </span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>unknown_criteria <span class="op">=</span> [<span class="st">'CBDDis'</span>,<span class="st">'popdensity'</span>,<span class="st">'Age_'</span>,<span class="st">'MedianInc'</span>,<span class="st">'DIST_Coast'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\zj1026.stu\AppData\Local\Temp\ipykernel_25092\1829373680.py:15: UserWarning: Geometry is in a geographic CRS. Results from 'centroid' are likely incorrect. Use 'GeoSeries.to_crs()' to re-project geometries to a projected CRS before this operation.
+
+  gpdDA["centroid"] = gpdDA.geometry.centroid # do the centroid after the reprojection to get the correct position for centroid points,</code></pre>
+</div>
+</div>
+<div id="ee328cd6-67c9-48a5-89f9-70d01287d6f3" class="cell" data-execution_count="33">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>gpdDA</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">DAUID</th>
+<th data-quarto-table-cell-role="th">StopDis</th>
+<th data-quarto-table-cell-role="th">CBDDis</th>
+<th data-quarto-table-cell-role="th">H_maintain</th>
+<th data-quarto-table-cell-role="th">H_rent</th>
+<th data-quarto-table-cell-role="th">popdensity</th>
+<th data-quarto-table-cell-role="th">green_dens</th>
+<th data-quarto-table-cell-role="th">H_edu</th>
+<th data-quarto-table-cell-role="th">Age_</th>
+<th data-quarto-table-cell-role="th">Unemploy_R</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">DIST_Coast</th>
+<th data-quarto-table-cell-role="th">dis_scho</th>
+<th data-quarto-table-cell-role="th">dis_medi</th>
+<th data-quarto-table-cell-role="th">SurfaceT</th>
+<th data-quarto-table-cell-role="th">PM2_5_Mean</th>
+<th data-quarto-table-cell-role="th">CrimeRate</th>
+<th data-quarto-table-cell-role="th">Shape_Leng</th>
+<th data-quarto-table-cell-role="th">Shape_Area</th>
+<th data-quarto-table-cell-role="th">geometry</th>
+<th data-quarto-table-cell-role="th">centroid</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>59150004</td>
+<td>299.15</td>
+<td>8920.30</td>
+<td>2950.47</td>
+<td>2860.02</td>
+<td>425.0</td>
+<td>0.12</td>
+<td>150</td>
+<td>52</td>
+<td>6</td>
+<td>...</td>
+<td>2.99</td>
+<td>12956.48</td>
+<td>4629.36</td>
+<td>25.65</td>
+<td>3.83</td>
+<td>2.57e-03</td>
+<td>11483.58</td>
+<td>8.51e+05</td>
+<td>POLYGON ((-123.27497 49.36885, -123.27552 49.3...</td>
+<td>POINT (-123.25834 49.38879)</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>59150005</td>
+<td>76.09</td>
+<td>8742.44</td>
+<td>2320.00</td>
+<td>1920.00</td>
+<td>3168.7</td>
+<td>0.11</td>
+<td>145</td>
+<td>43</td>
+<td>7</td>
+<td>...</td>
+<td>425.38</td>
+<td>11200.47</td>
+<td>3181.21</td>
+<td>30.45</td>
+<td>3.83</td>
+<td>1.32e-02</td>
+<td>2038.22</td>
+<td>1.66e+05</td>
+<td>POLYGON ((-123.27552 49.36948, -123.27603 49.3...</td>
+<td>POINT (-123.27675 49.37161)</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>59150006</td>
+<td>135.77</td>
+<td>8984.06</td>
+<td>2680.00</td>
+<td>1280.00</td>
+<td>2899.3</td>
+<td>0.14</td>
+<td>195</td>
+<td>44</td>
+<td>12</td>
+<td>...</td>
+<td>324.34</td>
+<td>11333.97</td>
+<td>3389.08</td>
+<td>29.87</td>
+<td>3.83</td>
+<td>1.40e-02</td>
+<td>2495.17</td>
+<td>1.56e+05</td>
+<td>POLYGON ((-123.27673 49.37536, -123.2776 49.37...</td>
+<td>POINT (-123.28009 49.37237)</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>59150007</td>
+<td>509.44</td>
+<td>9373.56</td>
+<td>2701.37</td>
+<td>1771.88</td>
+<td>755.8</td>
+<td>0.12</td>
+<td>240</td>
+<td>49</td>
+<td>7</td>
+<td>...</td>
+<td>220.31</td>
+<td>11665.32</td>
+<td>3770.47</td>
+<td>26.81</td>
+<td>3.83</td>
+<td>3.03e-03</td>
+<td>6335.65</td>
+<td>7.21e+05</td>
+<td>MULTIPOLYGON (((-123.29247 49.36949, -123.2927...</td>
+<td>POINT (-123.28367 49.37494)</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>59150008</td>
+<td>373.90</td>
+<td>8234.88</td>
+<td>3046.36</td>
+<td>2619.72</td>
+<td>903.0</td>
+<td>0.11</td>
+<td>275</td>
+<td>46</td>
+<td>0</td>
+<td>...</td>
+<td>316.39</td>
+<td>9849.44</td>
+<td>2148.98</td>
+<td>27.66</td>
+<td>3.83</td>
+<td>3.31e-03</td>
+<td>12275.26</td>
+<td>6.59e+05</td>
+<td>MULTIPOLYGON (((-123.27642 49.35336, -123.2770...</td>
+<td>POINT (-123.27685 49.35921)</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">3586</th>
+<td>59154402</td>
+<td>102.02</td>
+<td>0.00</td>
+<td>1300.00</td>
+<td>1360.00</td>
+<td>2283.4</td>
+<td>0.02</td>
+<td>15</td>
+<td>60</td>
+<td>0</td>
+<td>...</td>
+<td>4999.88</td>
+<td>3554.52</td>
+<td>99.80</td>
+<td>36.17</td>
+<td>3.73</td>
+<td>1.92e-02</td>
+<td>1729.33</td>
+<td>1.49e+05</td>
+<td>POLYGON ((-122.77529 49.2552, -122.77855 49.25...</td>
+<td>POINT (-122.77694 49.25803)</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3587</th>
+<td>59154404</td>
+<td>235.01</td>
+<td>1628.23</td>
+<td>1360.00</td>
+<td>940.00</td>
+<td>204.2</td>
+<td>0.02</td>
+<td>40</td>
+<td>43</td>
+<td>11</td>
+<td>...</td>
+<td>6776.15</td>
+<td>4126.67</td>
+<td>1361.05</td>
+<td>34.51</td>
+<td>3.73</td>
+<td>8.88e-04</td>
+<td>11095.24</td>
+<td>3.22e+06</td>
+<td>POLYGON ((-122.77943 49.26455, -122.73382 49.2...</td>
+<td>POINT (-122.75685 49.24899)</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">3588</th>
+<td>59154406</td>
+<td>272.17</td>
+<td>5891.70</td>
+<td>2140.00</td>
+<td>2200.00</td>
+<td>974.5</td>
+<td>0.13</td>
+<td>295</td>
+<td>42</td>
+<td>7</td>
+<td>...</td>
+<td>940.54</td>
+<td>4130.24</td>
+<td>3611.78</td>
+<td>29.01</td>
+<td>3.83</td>
+<td>3.40e-03</td>
+<td>3982.20</td>
+<td>8.09e+05</td>
+<td>POLYGON ((-122.96783 49.31601, -122.95554 49.3...</td>
+<td>POINT (-122.96301 49.31171)</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3589</th>
+<td>59154407</td>
+<td>285.93</td>
+<td>4946.32</td>
+<td>2155.82</td>
+<td>1782.38</td>
+<td>2123.3</td>
+<td>0.11</td>
+<td>870</td>
+<td>42</td>
+<td>8</td>
+<td>...</td>
+<td>248.73</td>
+<td>3075.93</td>
+<td>3328.46</td>
+<td>28.69</td>
+<td>3.83</td>
+<td>2.46e-03</td>
+<td>5092.12</td>
+<td>1.12e+06</td>
+<td>POLYGON ((-122.9912 49.31287, -122.96894 49.31...</td>
+<td>POINT (-122.97872 49.3094)</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">3590</th>
+<td>59310221</td>
+<td>0.00</td>
+<td>18538.11</td>
+<td>2650.57</td>
+<td>3383.75</td>
+<td>0.0</td>
+<td>0.15</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>...</td>
+<td>4687.46</td>
+<td>20181.02</td>
+<td>16077.75</td>
+<td>25.65</td>
+<td>3.69</td>
+<td>5.28e-03</td>
+<td>22380.10</td>
+<td>7.42e+05</td>
+<td>MULTIPOLYGON (((-123.10277 49.48278, -123.1028...</td>
+<td>POINT (-123.17919 49.48331)</td>
+</tr>
+</tbody>
+</table>
+
+<p>3591 rows × 21 columns</p>
+</div>
+</div>
+</div>
+<section id="slider-weight-control" class="level2">
+<h2 class="anchored" data-anchor-id="slider-weight-control">Slider + Weight Control</h2>
+<div id="8fadf4d0-b2b0-4431-bf60-813b129cad7a" class="cell" data-execution_count="34">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sliders: 0–10 where 0 = doesn't care, 10 = very important</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>label <span class="op">=</span> [<span class="st">'Distance to CBD (m)'</span>, <span class="st">'Distance to Transit Stations (m)'</span>, <span class="st">'Population Density'</span>,<span class="st">'Owned House Maintainance fee ($)'</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>         <span class="st">'House Rent ($)'</span>,<span class="st">'Green Density'</span>,<span class="st">'Percentage of Bachelor Degree Holders'</span>,<span class="st">'Age'</span>,<span class="st">'Unemployment Rate'</span>, <span class="st">'Median Income ($)'</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>         <span class="st">'Distance to Seashore (m)'</span>, <span class="st">'Distance to Nearest School (m)'</span>, <span class="st">'Distance to Hospital (m)'</span>, <span class="st">'Surface Temperatrue (°C)'</span>, </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>         <span class="st">'PM2.5 Concentration (μg/m³)'</span>,<span class="st">'Crime Rate (/m²)'</span>]</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># update mandatory!!!!!!</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>sliders <span class="op">=</span> {c: widgets.IntSlider(value<span class="op">=</span><span class="dv">1</span>,  <span class="co"># default equal importance. c: is the key</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>                                <span class="bu">min</span><span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>                                <span class="bu">max</span><span class="op">=</span><span class="dv">10</span>,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>                                step<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>                                description<span class="op">=</span>l, <span class="co">#slider label, not the dic key</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>                                continuous_update<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>                                style<span class="op">=</span>{<span class="st">"description_width"</span>: <span class="st">"250px"</span>},</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>                                layout<span class="op">=</span>widgets.Layout(width<span class="op">=</span><span class="st">"600px"</span>,border<span class="op">=</span><span class="st">"2px solid #0ABAB5"</span>,padding<span class="op">=</span><span class="st">"5px"</span>,margin<span class="op">=</span><span class="st">"5px"</span>)) <span class="cf">for</span> c,l <span class="kw">in</span> <span class="bu">zip</span>(criteria,label)} <span class="co"># output:dictionary</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>slider_format <span class="op">=</span> GridBox(<span class="bu">list</span>(sliders.values()), layout<span class="op">=</span>Layout(grid_template_columns<span class="op">=</span><span class="st">"repeat(2, 600px)"</span>, <span class="co"># 2 columns, 600px each cell</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>                                                             grid_gap<span class="op">=</span><span class="st">"0px 20px"</span>, <span class="co">#row gap, col gap</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>                                                             justify_items<span class="op">=</span><span class="st">"center"</span>))</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co"># toggle options:</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>label_unknown <span class="op">=</span> [<span class="st">'Distance to CBD:'</span>, <span class="st">'Population Density:'</span>,<span class="st">'Average Age:'</span>,<span class="st">'Median Income:'</span>,</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>                 <span class="st">'Distance to Seashore'</span>]</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="co"># update mandatory!!!!!!</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>toggles <span class="op">=</span> {<span class="ss">f"</span><span class="sc">{</span>c<span class="sc">}</span><span class="ss">_pref"</span>: widgets.ToggleButtons(options<span class="op">=</span>[(<span class="st">'Lower'</span>,<span class="st">'lower'</span>),(<span class="st">'Higher'</span>,<span class="st">'higher'</span>)],</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>                                       value <span class="op">=</span> <span class="st">'lower'</span>,</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>                                       description<span class="op">=</span>l,</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>                                       style<span class="op">=</span>{<span class="st">"description_width"</span>: <span class="st">"50px"</span>},</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>                                       layout<span class="op">=</span>widgets.Layout(width<span class="op">=</span><span class="st">"180px"</span>,border<span class="op">=</span><span class="st">"2px solid #0ABAB5"</span>,padding<span class="op">=</span><span class="st">"5px"</span>,margin<span class="op">=</span><span class="st">"5px"</span>)) <span class="cf">for</span> c,l <span class="kw">in</span> <span class="bu">zip</span>(unknown_criteria,label_unknown)}</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a><span class="co"># arrange the sliders and the toggles</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>sliders_box <span class="op">=</span> widgets.VBox([widgets.HTML(<span class="st">"&lt;h3&gt;Set Preference for Each Criterion (0–10)&lt;/h3&gt;"</span>),</span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>                            slider_format,</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>                            widgets.HTML(<span class="st">"&lt;h3&gt;Decide Your Preference:&lt;/h3&gt;"</span>),</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>                            widgets.HBox(<span class="bu">list</span>(toggles.values()))]) <span class="co"># list() to make it save, sometimes Hbox doesn't take dictionary as an input, but only iterable object like list.</span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>                            <span class="co"># put widgets.Hbox() inside to make sure there is only one toggle frame and it's list in: Vertical Vertical ... last item-&gt;horizontal </span></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>output <span class="op">=</span> widgets.Output()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="258164e6-06c3-48e7-a4e9-5a17fc3120fc" class="cell" data-execution_count="39">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># preview the slider bar</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># display(sliders_box)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="normalize-criteria-compute-suitability" class="level2">
+<h2 class="anchored" data-anchor-id="normalize-criteria-compute-suitability">Normalize Criteria &amp; Compute Suitability</h2>
+<div id="68a48cd4-af7c-4b4e-b73d-c6a9cceb3e2a" class="cell" data-execution_count="36">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compute_suitability(df, weight, preference_value):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> df.copy()</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Normalize weights to 0–100% </span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    totalweight <span class="op">=</span> <span class="bu">sum</span>(weight.values()) <span class="co"># the result of dragging slider bar is also a dictionary</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> totalweight <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        n <span class="op">=</span> <span class="bu">len</span>(weight)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        weight_norm <span class="op">=</span> {c: <span class="dv">1</span> <span class="op">/</span> n <span class="cf">for</span> c <span class="kw">in</span> weight} <span class="co"># if 0 for all, then use default where each criterion get the same weight</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        weight_norm <span class="op">=</span> {c: v <span class="op">/</span> totalweight <span class="cf">for</span> c, v <span class="kw">in</span> weight.items()}</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    weight_percent <span class="op">=</span> {c: <span class="dv">100</span> <span class="op">*</span> w <span class="cf">for</span> c, w <span class="kw">in</span> weight_norm.items()}</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Normalize each criterion to 0-1</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> col <span class="kw">in</span> criteria:</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>        vals <span class="op">=</span> df[col].astype(<span class="bu">float</span>) <span class="co"># get the entire column from the df, based on the name of col</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>        vmin, vmax <span class="op">=</span> vals.<span class="bu">min</span>(), vals.<span class="bu">max</span>() <span class="co"># get the extent of the column</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> vmax <span class="op">==</span> vmin:</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>            df[col <span class="op">+</span> <span class="st">"_norm"</span>] <span class="op">=</span> <span class="fl">0.0</span> <span class="co"># fill 0 to all rows if the extent is 0 as well. </span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># decide if CBD is cost/benefit</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> col <span class="kw">in</span> unknown_criteria:</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>            user_pref <span class="op">=</span> preference_value[col]</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> user_pref <span class="op">==</span> <span class="st">'lower'</span>:</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>                df[col <span class="op">+</span> <span class="st">"_norm"</span>] <span class="op">=</span> (vmax <span class="op">-</span> vals) <span class="op">/</span> (vmax <span class="op">-</span> vmin)</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>                df[col <span class="op">+</span> <span class="st">"_norm"</span>] <span class="op">=</span> (vals <span class="op">-</span> vmin) <span class="op">/</span> (vmax <span class="op">-</span> vmin)</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>        <span class="co"># for other normal criteria</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> col <span class="kw">in</span> cost_criteria:</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>            <span class="co"># if the criterion is better when the number is small (cost)</span></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>            df[col <span class="op">+</span> <span class="st">"_norm"</span>] <span class="op">=</span> (vmax <span class="op">-</span> vals) <span class="op">/</span> (vmax <span class="op">-</span> vmin)</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>            <span class="co"># if the criterion is better when the number is large (benifit)</span></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>            df[col <span class="op">+</span> <span class="st">"_norm"</span>] <span class="op">=</span> (vals <span class="op">-</span> vmin) <span class="op">/</span> (vmax <span class="op">-</span> vmin)</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate suitability score</span></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">"suit_score"</span>] <span class="op">=</span> <span class="bu">sum</span>(df[c <span class="op">+</span> <span class="st">"_norm"</span>] <span class="op">*</span> weight_norm[c] <span class="cf">for</span> c <span class="kw">in</span> criteria)</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df, weight_norm, weight_percent</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="build-interactive-map-function" class="level2">
+<h2 class="anchored" data-anchor-id="build-interactive-map-function">Build Interactive Map Function</h2>
+<div id="71b37427-feb1-4868-ad7d-e9478306d83f" class="cell" data-execution_count="37">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the map center</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>center_y <span class="op">=</span> gpdDA.geometry.centroid.y.mean()</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>center_x <span class="op">=</span> gpdDA.geometry.centroid.x.mean()</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Hover tooltip: ID, score, and raw criterion values</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>tooltip_fields <span class="op">=</span> [ID, <span class="st">"suit_score"</span>] <span class="op">+</span> criteria</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>tooltip_aliases <span class="op">=</span> [ID, <span class="st">"Suitability Score"</span>] <span class="op">+</span> label </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> update_map(<span class="op">**</span>all_inputs): <span class="co"># accept any length of the input as keyword arguments( a=1; b=2; c....), then transform it into a dictionary, so weight will be interpretate as an dictionary</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> output: <span class="co"># printed or displayed inside this block goes into the Output widget, so everything below is incorporated into the widget window, not a jupyter cell.</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>        clear_output() <span class="co"># clear everything before (each movement of the slider actually produce one map, so clear it before get the final map), also see rational below</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>        weight <span class="op">=</span> {c: all_inputs[c] <span class="cf">for</span> c <span class="kw">in</span> criteria}</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>        preference_value <span class="op">=</span> {c: all_inputs[<span class="ss">f"</span><span class="sc">{</span>c<span class="sc">}</span><span class="ss">_pref"</span>] <span class="cf">for</span> c <span class="kw">in</span> unknown_criteria}</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># call function above to get the all necessary results:</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>        df_score, weight_norm, weight_percent <span class="op">=</span> compute_suitability(gpdDA, weight, preference_value)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>        <span class="co">#rank + slcie the top 10 most promising living site </span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>        sorted_score <span class="op">=</span> df_score.sort_values(<span class="st">"suit_score"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>        top10 <span class="op">=</span> sorted_score.head(<span class="dv">10</span>).copy()</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>        top10[<span class="st">"Rank"</span>] <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="bu">len</span>(top10) <span class="op">+</span> <span class="dv">1</span>)      </span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># get the summary table for top 10</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>        cols_for_table <span class="op">=</span> [<span class="st">"Rank"</span>, ID, <span class="st">"suit_score"</span>] <span class="op">+</span> criteria</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>        summary_table <span class="op">=</span> top10[cols_for_table].copy()</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>        summary_table <span class="op">=</span> summary_table.sort_values(<span class="st">"Rank"</span>)</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>        <span class="co"># print normalized weights just for reference</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Normalized weights (auto-scaled to sum to 100%):"</span>)</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>        nw <span class="op">=</span> <span class="st">'|'</span>.join([<span class="ss">f"  </span><span class="sc">{</span>c<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>weight_percent[c]<span class="sc">:.1f}</span><span class="ss">%"</span> <span class="cf">for</span> c <span class="kw">in</span> criteria])</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(nw)</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>            <span class="co"># 10 &amp; 5 = width; .1 = preserve 1 decimal after the point; s = string; f = float, c: &amp; weight_percent[c]: = define the format of this item for me </span></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Basemap</span></span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>        m <span class="op">=</span> folium.Map(location<span class="op">=</span>[center_y, center_x],</span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>                       zoom_start<span class="op">=</span><span class="fl">10.5</span>,</span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>                       tiles<span class="op">=</span><span class="st">'https://</span><span class="sc">{s}</span><span class="st">.basemaps.cartocdn.com/rastertiles/voyager/</span><span class="sc">{z}</span><span class="st">/</span><span class="sc">{x}</span><span class="st">/</span><span class="sc">{y}{r}</span><span class="st">.png'</span>, </span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>                       <span class="co"># https://leaflet-extras.github.io/leaflet-providers/preview/</span></span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>                       <span class="co"># all possible tiles to choose </span></span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>                       attr<span class="op">=</span><span class="st">'CartoDB.Voyager'</span>, </span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>                       max_zoom<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>        <span class="co"># measuring tool</span></span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>        MeasureControl(position<span class="op">=</span><span class="st">'bottomleft'</span>,</span>
+<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>                       primary_length_unit<span class="op">=</span><span class="st">'meters'</span>,</span>
+<span id="cb10-46"><a href="#cb10-46" aria-hidden="true" tabindex="-1"></a>                       secondary_length_unit<span class="op">=</span><span class="st">'kilometers'</span>).add_to(m)</span>
+<span id="cb10-47"><a href="#cb10-47" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-48"><a href="#cb10-48" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Choropleth based on suitability score</span></span>
+<span id="cb10-49"><a href="#cb10-49" aria-hidden="true" tabindex="-1"></a>        linear <span class="op">=</span> LinearColormap([<span class="st">"#4281a4"</span>, <span class="st">"#9cafb7"</span>, <span class="st">"#ead2ac"</span>, <span class="st">"#e6b89c"</span>, <span class="st">"#fe938c"</span>], </span>
+<span id="cb10-50"><a href="#cb10-50" aria-hidden="true" tabindex="-1"></a>                                vmin<span class="op">=</span>df_score[<span class="st">"suit_score"</span>].<span class="bu">min</span>(), </span>
+<span id="cb10-51"><a href="#cb10-51" aria-hidden="true" tabindex="-1"></a>                                vmax<span class="op">=</span>df_score[<span class="st">"suit_score"</span>].<span class="bu">max</span>(), </span>
+<span id="cb10-52"><a href="#cb10-52" aria-hidden="true" tabindex="-1"></a>                                caption <span class="op">=</span> <span class="st">"Suitability Score"</span>).add_to(m)</span>
+<span id="cb10-53"><a href="#cb10-53" aria-hidden="true" tabindex="-1"></a>        <span class="co"># modify the choropleth map + adding tooltip</span></span>
+<span id="cb10-54"><a href="#cb10-54" aria-hidden="true" tabindex="-1"></a>        df_for_map <span class="op">=</span> df_score.drop(columns<span class="op">=</span>[<span class="st">"centroid"</span>])</span>
+<span id="cb10-55"><a href="#cb10-55" aria-hidden="true" tabindex="-1"></a>        folium.GeoJson(</span>
+<span id="cb10-56"><a href="#cb10-56" aria-hidden="true" tabindex="-1"></a>            df_for_map,</span>
+<span id="cb10-57"><a href="#cb10-57" aria-hidden="true" tabindex="-1"></a>            name<span class="op">=</span><span class="st">"Info"</span>,</span>
+<span id="cb10-58"><a href="#cb10-58" aria-hidden="true" tabindex="-1"></a>            style_function<span class="op">=</span><span class="kw">lambda</span> feature: {<span class="st">"color"</span>: <span class="st">"black"</span>, <span class="co"># outline/border color</span></span>
+<span id="cb10-59"><a href="#cb10-59" aria-hidden="true" tabindex="-1"></a>                                            <span class="st">"fillColor"</span>: linear(feature[<span class="st">'properties'</span>][<span class="st">'suit_score'</span>]), <span class="co"># GeoJSON dataframe = feature["properties"] + feature["geometry"]</span></span>
+<span id="cb10-60"><a href="#cb10-60" aria-hidden="true" tabindex="-1"></a>                                            <span class="st">"weight"</span>: <span class="fl">0.3</span>,</span>
+<span id="cb10-61"><a href="#cb10-61" aria-hidden="true" tabindex="-1"></a>                                            <span class="st">"fillOpacity"</span>: <span class="fl">0.8</span>},</span>
+<span id="cb10-62"><a href="#cb10-62" aria-hidden="true" tabindex="-1"></a>            tooltip<span class="op">=</span>GeoJsonTooltip(fields<span class="op">=</span>tooltip_fields,</span>
+<span id="cb10-63"><a href="#cb10-63" aria-hidden="true" tabindex="-1"></a>                                   aliases<span class="op">=</span>tooltip_aliases,</span>
+<span id="cb10-64"><a href="#cb10-64" aria-hidden="true" tabindex="-1"></a>                                   localize<span class="op">=</span><span class="va">True</span>, <span class="co"># format the numbers well: adds commas + format float + respects locale settings (round up is no space)</span></span>
+<span id="cb10-65"><a href="#cb10-65" aria-hidden="true" tabindex="-1"></a>                                   sticky<span class="op">=</span><span class="va">False</span>)).add_to(m)  <span class="co"># disapper if cursor move off the polygon</span></span>
+<span id="cb10-66"><a href="#cb10-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-67"><a href="#cb10-67" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-68"><a href="#cb10-68" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Mark top 10 DA centroids in red</span></span>
+<span id="cb10-69"><a href="#cb10-69" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> _, row <span class="kw">in</span> top10.iterrows(): <span class="co"># .iterrows()loop through a pandas DataFrame row by row. return index + row content </span></span>
+<span id="cb10-70"><a href="#cb10-70" aria-hidden="true" tabindex="-1"></a>            <span class="co">#_ = i dont care, so here means I don't care the index.</span></span>
+<span id="cb10-71"><a href="#cb10-71" aria-hidden="true" tabindex="-1"></a>            c <span class="op">=</span> row.centroid</span>
+<span id="cb10-72"><a href="#cb10-72" aria-hidden="true" tabindex="-1"></a>            popup <span class="op">=</span> <span class="ss">f"""</span></span>
+<span id="cb10-73"><a href="#cb10-73" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;div style=" font-size:14px; padding:8px; background-color:#ffe8c1; border-radius:8px; border: 2px solid #555"&gt;</span></span>
+<span id="cb10-74"><a href="#cb10-74" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;b&gt; Most Suitable Place to Live Number #</span><span class="sc">{</span><span class="bu">int</span>(row[<span class="st">'Rank'</span>])<span class="sc">}</span><span class="ss">&lt;/b&gt;&lt;br&gt;</span></span>
+<span id="cb10-75"><a href="#cb10-75" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;b&gt;</span><span class="sc">{</span>ID<span class="sc">}</span><span class="ss">&lt;/b&gt;: </span><span class="sc">{</span>row[ID]<span class="sc">}</span><span class="ss">&lt;br&gt;</span></span>
+<span id="cb10-76"><a href="#cb10-76" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;b&gt;Suitability Score&lt;/b&gt;: </span><span class="sc">{</span>row[<span class="st">'suit_score'</span>]<span class="sc">:.3f}</span><span class="ss">&lt;br&gt;</span></span>
+<span id="cb10-77"><a href="#cb10-77" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;br&gt;</span></span>
+<span id="cb10-78"><a href="#cb10-78" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;b&gt;Distance to CBD (m)&lt;/b&gt;: </span><span class="sc">{</span>row[<span class="st">'CBDDis'</span>]<span class="sc">}</span><span class="ss">&lt;br&gt;</span></span>
+<span id="cb10-79"><a href="#cb10-79" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;b&gt;Distance to Public Transportation (m)&lt;/b&gt;: </span><span class="sc">{</span>row[<span class="st">'StopDis'</span>]<span class="sc">}</span><span class="ss">&lt;br&gt;</span></span>
+<span id="cb10-80"><a href="#cb10-80" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;b&gt;Population Density&lt;/b&gt;: </span><span class="sc">{</span>row[<span class="st">'popdensity'</span>]<span class="sc">}</span><span class="ss">&lt;br&gt;</span></span>
+<span id="cb10-81"><a href="#cb10-81" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;b&gt;Owned House Maintainance fee ($)&lt;/b&gt;: </span><span class="sc">{</span>row[<span class="st">'H_maintain'</span>]<span class="sc">}</span><span class="ss">&lt;br&gt;</span></span>
+<span id="cb10-82"><a href="#cb10-82" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;b&gt;House Rent ($)&lt;/b&gt;: </span><span class="sc">{</span>row[<span class="st">'H_rent'</span>]<span class="sc">}</span><span class="ss">&lt;br&gt;</span></span>
+<span id="cb10-83"><a href="#cb10-83" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;b&gt;Green Density&lt;/b&gt;: </span><span class="sc">{</span>row[<span class="st">'green_dens'</span>]<span class="sc">}</span><span class="ss">&lt;br&gt;</span></span>
+<span id="cb10-84"><a href="#cb10-84" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;b&gt;Percentage of Bachelor Degree Holders&lt;/b&gt;: </span><span class="sc">{</span>row[<span class="st">'H_edu'</span>]<span class="sc">}</span><span class="ss">&lt;br&gt;</span></span>
+<span id="cb10-85"><a href="#cb10-85" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;b&gt;Age&lt;/b&gt;: </span><span class="sc">{</span>row[<span class="st">'Age_'</span>]<span class="sc">}</span><span class="ss">&lt;br&gt;</span></span>
+<span id="cb10-86"><a href="#cb10-86" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;b&gt;Unemployment Rate&lt;/b&gt;: </span><span class="sc">{</span>row[<span class="st">'Unemploy_R'</span>]<span class="sc">}</span><span class="ss">&lt;br&gt;</span></span>
+<span id="cb10-87"><a href="#cb10-87" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;b&gt;Median Income&lt;/b&gt;: </span><span class="sc">{</span>row[<span class="st">'MedianInc'</span>]<span class="sc">}</span><span class="ss">&lt;br&gt;</span></span>
+<span id="cb10-88"><a href="#cb10-88" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;b&gt;Distance to Seashore&lt;/b&gt;: </span><span class="sc">{</span>row[<span class="st">'DIST_Coast'</span>]<span class="sc">}</span><span class="ss">&lt;br&gt;</span></span>
+<span id="cb10-89"><a href="#cb10-89" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;b&gt;Distance to Nearest School&lt;/b&gt;: </span><span class="sc">{</span>row[<span class="st">'dis_scho'</span>]<span class="sc">}</span><span class="ss">&lt;br&gt;</span></span>
+<span id="cb10-90"><a href="#cb10-90" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;b&gt;Distance to Hospital&lt;/b&gt;: </span><span class="sc">{</span>row[<span class="st">'dis_medi'</span>]<span class="sc">}</span><span class="ss">&lt;br&gt;</span></span>
+<span id="cb10-91"><a href="#cb10-91" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;b&gt;Surface Temperatrue (°C)&lt;/b&gt;: </span><span class="sc">{</span>row[<span class="st">'SurfaceT'</span>]<span class="sc">}</span><span class="ss">&lt;br&gt;</span></span>
+<span id="cb10-92"><a href="#cb10-92" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;b&gt;PM2.5 Concentration (μg/m³)&lt;/b&gt;: </span><span class="sc">{</span>row[<span class="st">'PM2_5_Mean'</span>]<span class="sc">}</span><span class="ss">&lt;br&gt;</span></span>
+<span id="cb10-93"><a href="#cb10-93" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;b&gt;Crime Rate (/m²)&lt;/b&gt;: </span><span class="sc">{</span>row[<span class="st">'CrimeRate'</span>]<span class="sc">}</span><span class="ss">&lt;br&gt;</span></span>
+<span id="cb10-94"><a href="#cb10-94" aria-hidden="true" tabindex="-1"></a><span class="ss">            &lt;/div&gt;</span></span>
+<span id="cb10-95"><a href="#cb10-95" aria-hidden="true" tabindex="-1"></a><span class="ss">            """</span></span>
+<span id="cb10-96"><a href="#cb10-96" aria-hidden="true" tabindex="-1"></a>            popup_text <span class="op">=</span> folium.Popup(popup, max_width <span class="op">=</span> <span class="st">'400'</span>)</span>
+<span id="cb10-97"><a href="#cb10-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-98"><a href="#cb10-98" aria-hidden="true" tabindex="-1"></a>            folium.Marker(location<span class="op">=</span>[c.y, c.x],</span>
+<span id="cb10-99"><a href="#cb10-99" aria-hidden="true" tabindex="-1"></a>                          popup<span class="op">=</span>popup_text,</span>
+<span id="cb10-100"><a href="#cb10-100" aria-hidden="true" tabindex="-1"></a>                          icon<span class="op">=</span>folium.DivIcon(</span>
+<span id="cb10-101"><a href="#cb10-101" aria-hidden="true" tabindex="-1"></a>                              html<span class="op">=</span><span class="st">"""</span></span>
+<span id="cb10-102"><a href="#cb10-102" aria-hidden="true" tabindex="-1"></a><span class="st">                              &lt;div style="font-size:20px; </span></span>
+<span id="cb10-103"><a href="#cb10-103" aria-hidden="true" tabindex="-1"></a><span class="st">                              line-height:40px; </span></span>
+<span id="cb10-104"><a href="#cb10-104" aria-hidden="true" tabindex="-1"></a><span class="st">                              transform: translate(-50%, -50%);"&gt;🏵️&lt;/div&gt;</span></span>
+<span id="cb10-105"><a href="#cb10-105" aria-hidden="true" tabindex="-1"></a><span class="st">                              """</span>)).add_to(m)</span>
+<span id="cb10-106"><a href="#cb10-106" aria-hidden="true" tabindex="-1"></a>            <span class="co"># text-shadow: 0 0 5px #ead2ac, 0 0 8px #9cafb7, 0 0 15px #4281a4;  for shadow, 008pxgold -&gt; 00 shift in x&amp;y, size, color</span></span>
+<span id="cb10-107"><a href="#cb10-107" aria-hidden="true" tabindex="-1"></a>            <span class="co"># line-height: control the invisible sqaure that contain the emoji, transform: translate(-50%, -50%), put the image at centre, default is top-left corner</span></span>
+<span id="cb10-108"><a href="#cb10-108" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-109"><a href="#cb10-109" aria-hidden="true" tabindex="-1"></a>        <span class="co"># print map</span></span>
+<span id="cb10-110"><a href="#cb10-110" aria-hidden="true" tabindex="-1"></a>        display(m)</span>
+<span id="cb10-111"><a href="#cb10-111" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-112"><a href="#cb10-112" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Top 10 most suitable dissemination areas:"</span>)</span>
+<span id="cb10-113"><a href="#cb10-113" aria-hidden="true" tabindex="-1"></a>        summary_table.columns <span class="op">=</span> ([<span class="st">"Rank"</span>, <span class="st">"DAUID"</span>, <span class="st">"Suitability Score"</span>] <span class="op">+</span> label)  <span class="co"># existing list of 5 nicely formatted names</span></span>
+<span id="cb10-114"><a href="#cb10-114" aria-hidden="true" tabindex="-1"></a>        <span class="co"># set the dataframe format</span></span>
+<span id="cb10-115"><a href="#cb10-115" aria-hidden="true" tabindex="-1"></a>        pd.set_option(<span class="st">"display.precision"</span>, <span class="dv">2</span>)</span>
+<span id="cb10-116"><a href="#cb10-116" aria-hidden="true" tabindex="-1"></a>        pd.set_option(<span class="st">"display.width"</span>, <span class="dv">2000</span>)</span>
+<span id="cb10-117"><a href="#cb10-117" aria-hidden="true" tabindex="-1"></a>        display(summary_table)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>C:\Users\zj1026.stu\AppData\Local\Temp\ipykernel_25092\1173824240.py:2: UserWarning: Geometry is in a geographic CRS. Results from 'centroid' are likely incorrect. Use 'GeoSeries.to_crs()' to re-project geometries to a projected CRS before this operation.
+
+  center_y = gpdDA.geometry.centroid.y.mean()
+C:\Users\zj1026.stu\AppData\Local\Temp\ipykernel_25092\1173824240.py:3: UserWarning: Geometry is in a geographic CRS. Results from 'centroid' are likely incorrect. Use 'GeoSeries.to_crs()' to re-project geometries to a projected CRS before this operation.
+
+  center_x = gpdDA.geometry.centroid.x.mean()</code></pre>
+</div>
+</div>
+</section>
+<section id="connect-map-control-panel-display-the-map" class="level2">
+<h2 class="anchored" data-anchor-id="connect-map-control-panel-display-the-map">Connect Map &amp; Control Panel <br> + Display the Map</h2>
+<div id="796ceafb-6f42-4528-8fe5-78477c69f922" class="cell" data-execution_count="38">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>interactive <span class="op">=</span> widgets.interactive_output(update_map, {<span class="op">**</span>sliders, <span class="op">**</span>toggles}) <span class="co"># build connection between the slider bar and the map, so that's how the change in the slider actually affect the map display</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># however, that means everytime we adjust the slider, a new set of values are put into the function, so the whole function will run again. that's why we need a clear_output() above.</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># widgets.interactive_output(function, controls) where controls MUST be a DICTIONARY, the function will know how to match the parameters by the KEYs in the control dictionary. </span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>display(sliders_box, output) <span class="co"># show slider_box and the output(map + table) in sequence </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"909af3f0846f4d139eaaa1f8a6c53cb2","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"5dd1dfb74b0a4487b0922a2046ef3b34","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
