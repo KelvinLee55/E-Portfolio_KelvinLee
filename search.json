@@ -152,5 +152,12 @@
     "title": "Set up + Load Data ##",
     "section": "Connect Map & Control Panel  + Display the Map",
     "text": "Connect Map & Control Panel  + Display the Map\n\ninteractive = widgets.interactive_output(update_map, {**sliders, **toggles}) # build connection between the slider bar and the map, so that's how the change in the slider actually affect the map display\n# however, that means everytime we adjust the slider, a new set of values are put into the function, so the whole function will run again. that's why we need a clear_output() above.\n# widgets.interactive_output(function, controls) where controls MUST be a DICTIONARY, the function will know how to match the parameters by the KEYs in the control dictionary. \ndisplay(sliders_box, output) # show slider_box and the output(map + table) in sequence"
+  },
+  {
+    "objectID": "Publications.html",
+    "href": "Publications.html",
+    "title": "Publications",
+    "section": "",
+    "text": "Major Projects:\n\nLee, K. H. (2025). Fuel type mapping frosm Sentinel-2 multispectral imagery using a Convolutional Neural Network (CNN) classification framework: A case study on Mudge Island, British Columbia. [Unpublished research proposal]. University of British Columbia. View document\nLee, K. H. K. (2025). Evaluating the impact of urban parks on air quality enhancement in Hong Kong. [Honours project, Hong Kong Baptist University].\nView document\n\nReports:\n\nLee, K. L. (2025). How can pre-fire above-ground biomass (AGB) structure and burn-severity patterns guide fuel-management strategies in Coastal Douglas-fir (Pseudotsuga menziesii) forest ecosystems? [Unpublished research proposal]. University of British Columbia.\nView document\n\nCoursework:\n\nTo be added"
   }
 ]

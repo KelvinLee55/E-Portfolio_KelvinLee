@@ -179,6 +179,34 @@ m <- leaflet(options = leafletOptions(preferCanvas = TRUE)) %>%
     options = layersControlOptions(collapsed = FALSE)
   ) %>%
   
+    ## --- Legends (auto-toggle with layers) ------------------------------------
+  addLegend(
+    position = "bottomright",
+    colors = hill_cols,
+    labels = levels(hill)[[1]]$label,
+    title  = "Hillshade",
+    opacity = 0.8,
+    group = "Hillshade"
+  ) %>%
+  
+  addLegend(
+    position = "bottomright",
+    colors = slope_cols,
+    labels = levels(slope)[[1]]$label,
+    title  = "Slope",
+    opacity = 0.8,
+    group = "Slope"
+  ) %>%
+  
+  addLegend(
+    position = "bottomright",
+    colors = aspect_cols,
+    labels = levels(aspect)[[1]]$label,
+    title  = "Aspect",
+    opacity = 0.8,
+    group = "Aspect"
+  ) %>%
+  
   ## --- Hide raster layers by default ---
   hideGroup(c("Hillshade", "Slope", "Aspect")) %>%
   
