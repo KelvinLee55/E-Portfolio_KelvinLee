@@ -14,12 +14,10 @@ website:
         text: Content & Deliverables
       - href: publication.qmd
         text: Publication
-
  
-
 format:
   html:
-    theme: flatly
+    theme: litera
     css: styles.css
     toc: true
 

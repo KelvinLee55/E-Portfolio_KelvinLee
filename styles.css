@@ -1,0 +1,41 @@
+/* Overall body */
+body {
+  font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #2f3e2f;          /* forest dark green */
+  background-color: #ffffff;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+  font-weight: 600;
+  color: #1b3a2b;          /* deep forest green */
+}
+
+/* Navbar */
+.navbar {
+  font-size: 1.05rem;
+  border-bottom: 2px solid #a5d6a7;
+}
+
+/* Links */
+a {
+  color: #2d6a4f;          /* muted green */
+}
+a:hover {
+  color: #1b4332;
+  text-decoration: underline;
+}
+
+/* Table of contents */
+#TOC {
+  font-size: 0.95rem;
+  border-left: 3px solid #a5d6a7;
+  padding-left: 0.7rem;
+}
+
+/* Section spacing */
+section {
+  margin-bottom: 2.5rem;
+}
