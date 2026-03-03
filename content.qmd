@@ -4,7 +4,20 @@ format: html
 editor: visual
 ---
 
-# 1) Community Project - Disaster Response Mapping
+# 1) ArcGIS Storymaps - Mudge Island
+
+This StoryMap presents information on Mudge Island's location, size, climate, vegetation, land cover, wildfire history and fuel types. It offers a comprehensive overview of the island's physical landscape and fire-prone environment.
+
+```{=html}
+<iframe
+  src="https://storymaps.arcgis.com/stories/2d6ff354d545461ab333c26a8561cb4e"
+  width="100%"
+  height="700"
+  style="border:0;">
+</iframe>
+```
+
+# 2) Community Project - Disaster Response Mapping
 
 The aim of this project is to create an interactive map that is readily operable and accessible for Mudge Island residents and volunteers, particularly non-GIS users, in both online and offline circumstances. I set up a free QField account that people can use to update and review the map on their computers or phones anytime, anywhere. Map users can click to access the information they need, such as the precise location of water caches and evacuation points by boat or helicopter. This interactive map has proven invaluable in wildfire response decision-making and enhancing familiarity with the island's environment. The map below is just a demo to show the map's potential.
 
@@ -220,7 +233,7 @@ m <- leaflet(options = leafletOptions(preferCanvas = TRUE)) %>%
 m
 ```
 
-# 1) Capstone Project - Fuel type Mapping
+# 3) Capstone Project - Fuel type Mapping
 
 ## Preliminary Fuel Type Map
 
@@ -663,7 +676,7 @@ lookup = {
 ```
 :::
 
-# 3) Graduate Coursework Project - City Suitability Mapping
+# 4) Graduate Coursework Project - City Suitability Mapping
 
 This interactive map allows users to locate the best places to live or invest in Metro Vancouver. You can easily adjust 16 different lifestyle and environmental factors, such as distance to CBD, rent costs, school proximity, and air quality, based on your personal priorities. By moving the sliders, you can generate a personalized Suitability Index that instantly recolors the map to highlight top-performing neighborhoods. Meanwhile, you may indicate your preference regarding certain contentious factors—those which have always been subject to differing opinions. The final result is a ranked list of the top 10 areas that most closely match your ideal balance of benefits and costs.
 
