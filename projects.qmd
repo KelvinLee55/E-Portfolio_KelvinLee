@@ -1,5 +1,5 @@
 ---
-title: "Content & Deliverables"
+title: "Projects"
 format: html
 editor: visual
 ---
@@ -675,16 +675,3 @@ lookup = {
     ...
 ```
 :::
-
-# 4) Graduate Coursework Project - City Suitability Mapping
-
-This interactive map allows users to locate the best places to live or invest in Metro Vancouver. You can easily adjust 16 different lifestyle and environmental factors, such as distance to CBD, rent costs, school proximity, and air quality, based on your personal priorities. By moving the sliders, you can generate a personalized Suitability Index that instantly recolors the map to highlight top-performing neighborhoods. Meanwhile, you may indicate your preference regarding certain contentious factors—those which have always been subject to differing opinions. The final result is a ranked list of the top 10 areas that most closely match your ideal balance of benefits and costs.
-
-```{=html}
-<iframe
-  src="https://kelvvin55.shinyapps.io/Van_Map/"
-  width="100%"
-  height="700"
-  style="border:0;">
-</iframe>
-```

@@ -1,3 +1,14 @@
+/* ============================================================
+   Combined styles.css
+   - Keeps your ORIGINAL styles exactly as-is
+   - Adds the extra layout/formatting rules from the second file
+   ============================================================ */
+
+
+/* ============================================================
+   0) YOUR ORIGINAL STYLES (UNCHANGED)
+   ============================================================ */
+
 /* Overall body */
 body {
   font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
@@ -35,7 +46,137 @@ a:hover {
   padding-left: 0.7rem;
 }
 
-/* Section spacing */
-section {
-  margin-bottom: 2.5rem;
+
+/* ============================================================
+   1) ADDED FROM YOUR SECOND FILE (APPENDED)
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1) Make the page feel wider (“landscape” on desktop)
+   ------------------------------------------------------------ */
+
+/* Quarto/Bootstrap containers (most reliable across themes) */
+@media (min-width: 992px) {
+  .container,
+  .container-sm,
+  .container-md,
+  .container-lg,
+  .container-xl,
+  .container-xxl {
+    max-width: 1200px !important;
+  }
 }
+
+/* Extra safety: some layouts wrap content differently */
+.page-columns .content,
+.page-columns .page-layout-full .content,
+main.content,
+.content {
+  max-width: 1200px;
+}
+
+
+/* ------------------------------------------------------------
+   2) Main section titles (## About Me / Future / etc.)
+   ------------------------------------------------------------ */
+
+main h2,
+.content h2 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  margin-top: 2.2rem;
+  margin-bottom: 1.1rem;
+  border-bottom: 2px solid #e5e5e5;
+  padding-bottom: 0.35rem;
+  letter-spacing: 0.2px;
+}
+
+
+/* ------------------------------------------------------------
+   3) Subsection titles (### Education / Outdoors / etc.)
+   ------------------------------------------------------------ */
+
+main h3,
+.content h3 {
+  font-size: 1.25rem;
+  font-weight: 650;
+  margin-top: 0.9rem;
+  margin-bottom: 0.35rem;
+}
+
+
+/* ------------------------------------------------------------
+   4) Two-column layout: Professional Experience | Interests
+      (adds spacing + vertical divider)
+   ------------------------------------------------------------ */
+
+.columns {
+  column-gap: 3.5rem;
+  align-items: flex-start;
+}
+
+/* Left column divider + padding */
+.columns > .column:first-child {
+  border-right: 1px solid #dcdcdc;
+  padding-right: 2.2rem;
+}
+
+/* Right column padding */
+.columns > .column:last-child {
+  padding-left: 2.2rem;
+}
+
+
+/* ------------------------------------------------------------
+   5) Consistent spacing inside your grouped blocks (.cv-block)
+   ------------------------------------------------------------ */
+
+.cv-block {
+  margin-bottom: 1.25rem;
+}
+
+
+/* ------------------------------------------------------------
+   6) Bullet list formatting (clean + consistent)
+   ------------------------------------------------------------ */
+
+.cv-block ul {
+  margin: 0.35rem 0 0.9rem 0;
+  padding-left: 1.2rem;
+}
+
+.cv-block li {
+  margin: 0.25rem 0;
+}
+
+/* Optional: slightly tighter bullets site-wide */
+ul {
+  padding-left: 1.2rem;
+}
+
+li {
+  margin-bottom: 0.2rem;
+}
+
+
+/* ------------------------------------------------------------
+   7) Force main section titles to stand out (template-safe)
+   ------------------------------------------------------------ */
+
+/* Force main section titles to stand out (trestles template-safe) */
+#quarto-content h2,
+main h2,
+.content h2 {
+  font-size: 1.9rem !important;
+  font-weight: 800 !important;
+  margin-top: 2.4rem !important;
+  margin-bottom: 1.1rem !important;
+  border-bottom: 2px solid #e5e5e5 !important;
+  padding-bottom: 0.35rem !important;
+}
+
+/* Make the "About me..." title also follow the same style */
+.quarto-about-trestles h2 {
+  border-bottom: 2px solid #e5e5e5 !important;
+  padding-bottom: 0.35rem !important;
+}s

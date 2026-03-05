@@ -22,5 +22,14 @@
   },
   "index.qmd": {
     "index.html": "9f377f7e"
+  },
+  "projects.knit.md": {
+    "projects.knit.html": "c57396a7"
+  },
+  "projects.qmd": {
+    "projects.html": "a923d140"
+  },
+  "coursework.qmd": {
+    "coursework.html": "3e2196f3"
   }
 }

@@ -14,9 +14,14 @@ title: "Resume"
 # Professional Experience
 
 * ### Graduate Mapping Assistant 
-**Mudge Island Citizen’s Society (M.I.C.S)** | *Aug 2025 – Apr 2026*
+**People Animals Land & Sea (PALS)** | *Aug 2025 – Apr 2026*
 
-I worked with the non-profit organization M.I.C.S., where I developed interactive disaster response maps using QGIS and QField. I worked with GeoTIFF orthophotos, LAS/LAZ LiDAR point clouds, and vector datasets (SHP, GeoJSON, KML), which supported field-based mapping and wildfire response planning.
+I worked with the non-profit organization PALS., where I developed interactive disaster response maps using QGIS and QField. The map was created with three key considerations in mind: accessibility, readability and updatability, as it is oriented towards non-GIS users and Mudge Island residents. To support field-based mapping and wildfire response planning, I worked with GeoTIFF orthophotos, LAS/LAZ LiDAR point clouds, and vector datasets (SHP, GeoJSON, KML).
+
+* ### Graduate Research Assistant 
+**University of British Columbia (UBC)** | *Aug 2025 – Apr 2026*
+
+I developed a 10 m fuel type map using an integrated framework that combines a one-dimensional convolutional neural network (1D-CNN) with remote sensing datasets, including Sentinel-2 imagery and four reference land cover maps. The resulting map follows the Scott and Burgan Fuel Classification System, representing fuels in terms of fuel load, moisture regime, particle size, and vertical structure.
 
 * ### Ecological Survey and Plantation Management Intern 
 **Agriculture, Fisheries and Conservation Department (AFCD), Hong Kong** | *Jun 2024 – Aug 2024*

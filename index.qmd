@@ -1,10 +1,17 @@
 ---
 title: "Kelvin Lee"
 image: images/KelvinLee_Image.jpeg
+
+format:
+  html:
+    page-layout: full
+    css: styles
+    toc: false
+
 about:
   template: trestles
   image-width: 20em
-  links: 
+  links:
     - icon: linkedin
       text: LinkedIn
       href: https://www.linkedin.com/in/ka-hong-kelvin-lee/
@@ -20,8 +27,57 @@ about:
 
 My name is Kelvin Lee. I was raised in Hong Kong and moved to Vancouver, British Columbia, in 2025. I hold a bachelor’s degree in geography from Hong Kong Baptist University and a master’s degree in geomatics for environmental management from the University of British Columbia. My academic background has equipped me with a solid foundation in environmental systems, spatial analysis, and data-driven decision-making.
 
-My professional experience spans environmental education, ecological fieldwork, and geospatial analysis. I supported public outreach and conservation education initiatives, communicating topics such as coral reef and wildlife conservation to diverse audiences. I also contributed to ecological surveys, plantation management, and biodiversity monitoring projects. In these roles, I worked with field data, developed practical guidelines, and applied geospatial tools to support ecosystem restoration efforts.
+::: {.columns .gap-lg}
 
-My interest in environmental sustainability is rooted in a long-standing connection with wildlife and plants, shaped through both academic training and hands-on experience. Outside of work, I enjoy camping and trekking, which allow me to engage closely with natural landscapes and connect with like-minded individuals. I am particularly intrigued by the impact of urban green spaces in shaping environmental quality, especially their complex and sometimes contrasting effects on air pollution.
+::: {.column width="50%"}
+## Professional Experience
 
-Looking ahead, I aim to further explore wildfire management challenges associated with the wildland-urban interface in remote islands, using geomatics and spatial analysis to better understand fuel characterization. I am motivated to apply my technical skills, field experience, and passion for nature toward developing practical and innovative solutions for fire-prone remote communities.
+::: {.cv-block}
+### Education
+- Eco-tours for coral reefs and public outreach for tigers
+- Promoted the “Leave No Litter” campaign
+:::
+
+::: {.cv-block}
+### Fieldwork
+- Tree measurements for the Plantation Enhancement Program
+- Seedling monitoring for NGO reforestation programs
+:::
+
+::: {.cv-block}
+### Cartography / Web GIS
+- Interactive disaster response map
+- Fuel type map
+- Mudge Island StoryMap
+:::
+:::
+
+::: {.column width="50%"}
+## Interests
+
+::: {.cv-block}
+### Video games
+- Resident Evil series
+- Alien franchise
+- War Thunder
+:::
+
+::: {.cv-block}
+### Outdoors
+- Camping
+- Trekking
+- Biking
+:::
+
+::: {.cv-block}
+### Photography
+- Central and Mid-Levels
+- Hong Kong Lion Rock Hill
+- Braemar Hill Peak
+:::
+:::
+
+:::
+
+## Future
+I have always been deeply concerned about wildfire incidents on remote islands in BC. Through my map design work with the non-profit organization People Animals Land & Sea (PALS), I have come to better understand the vulnerability of communities living in isolated island environments. Looking ahead, I hope to continue developing my geospatial skills while learning more about the history, people, and culture of the places where I live and work. Every professional experience is not simply a new journey to me but a small step towards making a meaningful contribution.
