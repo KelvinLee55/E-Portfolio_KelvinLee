@@ -126,7 +126,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#graduate-coursework-project---city-suitability-mapping" id="toc-graduate-coursework-project---city-suitability-mapping" class="nav-link active" data-scroll-target="#graduate-coursework-project---city-suitability-mapping">1) Graduate Coursework Project - City Suitability Mapping</a></li>
+  <li><a href="#city-suitability-mapping" id="toc-city-suitability-mapping" class="nav-link active" data-scroll-target="#city-suitability-mapping">1 | City Suitability Mapping</a></li>
+  <li><a href="#individual-tree-detection-with-lidar" id="toc-individual-tree-detection-with-lidar" class="nav-link" data-scroll-target="#individual-tree-detection-with-lidar">2 | Individual Tree Detection with LiDAR</a>
+  <ul class="collapse">
+  <li><a href="#lidar-sample-plot-extraction" id="toc-lidar-sample-plot-extraction" class="nav-link" data-scroll-target="#lidar-sample-plot-extraction">2.1 |　LiDAR Sample Plot Extraction</a></li>
+  <li><a href="#code-snippets" id="toc-code-snippets" class="nav-link" data-scroll-target="#code-snippets">Code Snippets</a></li>
+  <li><a href="#plot-2-tree-segmentation" id="toc-plot-2-tree-segmentation" class="nav-link" data-scroll-target="#plot-2-tree-segmentation">2.2 | Plot 2 Tree Segmentation</a></li>
+  <li><a href="#code-snippets-1" id="toc-code-snippets-1" class="nav-link" data-scroll-target="#code-snippets-1">Code Snippets</a></li>
+  <li><a href="#plot-2-canopy-height-model-with-detected-tree-tops" id="toc-plot-2-canopy-height-model-with-detected-tree-tops" class="nav-link" data-scroll-target="#plot-2-canopy-height-model-with-detected-tree-tops">2.3 | Plot 2 Canopy Height Model with Detected Tree Tops</a></li>
+  <li><a href="#code-snippets-2" id="toc-code-snippets-2" class="nav-link" data-scroll-target="#code-snippets-2">Code Snippets</a></li>
+  </ul></li>
+  <li><a href="#multiple-linear-regression" id="toc-multiple-linear-regression" class="nav-link" data-scroll-target="#multiple-linear-regression">3 | Multiple Linear Regression</a>
+  <ul class="collapse">
+  <li><a href="#statistical-data-analysis" id="toc-statistical-data-analysis" class="nav-link" data-scroll-target="#statistical-data-analysis">3.1 | Statistical Data Analysis</a></li>
+  <li><a href="#regression-modelling-and-feature-engineering" id="toc-regression-modelling-and-feature-engineering" class="nav-link" data-scroll-target="#regression-modelling-and-feature-engineering">3.2 | Regression Modelling and Feature Engineering</a></li>
+  <li><a href="#model-diagnostics-and-predictive-analysis" id="toc-model-diagnostics-and-predictive-analysis" class="nav-link" data-scroll-target="#model-diagnostics-and-predictive-analysis">3.3 | Model Diagnostics and Predictive Analysis</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -152,13 +167,207 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="graduate-coursework-project---city-suitability-mapping" class="level1">
-<h1>1) Graduate Coursework Project - City Suitability Mapping</h1>
+<section id="city-suitability-mapping" class="level1">
+<h1>1 | City Suitability Mapping</h1>
 <p>This interactive map allows users to locate the best places to live or invest in Metro Vancouver. You can easily adjust 16 different lifestyle and environmental factors, such as distance to CBD, rent costs, school proximity, and air quality, based on your personal priorities. By moving the sliders, you can generate a personalized Suitability Index that instantly recolors the map to highlight top-performing neighborhoods. Meanwhile, you may indicate your preference regarding certain contentious factors—those which have always been subject to differing opinions. The final result is a ranked list of the top 10 areas that most closely match your ideal balance of benefits and costs.</p>
 <iframe src="https://kelvvin55.shinyapps.io/Van_Map/" width="100%" height="700" style="border:0;">
 </iframe>
+</section>
+<section id="individual-tree-detection-with-lidar" class="level1">
+<h1>2 | Individual Tree Detection with LiDAR</h1>
+<section id="lidar-sample-plot-extraction" class="level2">
+<h2 class="anchored" data-anchor-id="lidar-sample-plot-extraction">2.1 |　LiDAR Sample Plot Extraction</h2>
+<p>In this lab, I explored the process of individual tree segmentation using LiDAR data. One general method is the Canopy Height Model (CHM), which detects individual trees based on 2D CHM information. The first step is LiDAR plot extraction and pre-processing. Circular sample plots with a radius of 77 m were clipped around pre-defined coordinates, and outliers below 0 m and above 65 m were removed. This process prepares clean, plot-level LiDAR datasets for tree detection and segmentation, though no trees are identified at this stage.</p>
+<iframe src="https://kelvvin55.shinyapps.io/GEM521_Lab4/" width="100%" height="600" style="border:0;">
+</iframe>
+<p>*The color gradient represents elevation (e.g.&nbsp;blue for low points, green for mid canopy and yellow/red for high canopy).</p>
+</section>
+<section id="code-snippets" class="level2">
+<h2 class="anchored" data-anchor-id="code-snippets">Code Snippets</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">R</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<pre class="(.r)"><code># Define plot radius
+radius &lt;- 77
+
+# For loop to extract plots
+for(i in 1:nrow(plot_table)){
+  plot_id &lt;- plot_table$Plot_ID[i]
+  
+  plot_las &lt;- readLAS(paste0(data_path, "Plots/Plot_", plot_id, ".las"),
+                      filter = "-drop_z_below 0 -drop_z_above 65")
+  
+  las_clip &lt;- clip_circle(plot_las, plot_table$X[i], plot_table$Y[i], radius)
+  
+  writeLAS(las_clip, paste0(data_path, "Plots/Plot_", plot_id, "_154m.las"))
+  
+  print(paste("Plot", plot_id, "points:", npoints(las_clip)))
+}</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="plot-2-tree-segmentation" class="level2">
+<h2 class="anchored" data-anchor-id="plot-2-tree-segmentation">2.2 | Plot 2 Tree Segmentation</h2>
+<p>A canopy height model (CHM) with a resolution of 2 m was generated from the normalized LiDAR point cloud. Tree tops were subsequently detected from the CHM using a local maximum filter. It identifies the highest pixel value as the treetop. These detected treetops were used as seed points for the Dalponte and Coomes (2016) algorithm, which segments individual tree crowns. In a nutshell, this algorithm identifies the full tree crown boundary.</p>
+<iframe src="https://kelvvin55.shinyapps.io/Plot2/" width="100%" height="600" style="border:0;">
+</iframe>
+<p>*Each segmented tree is displayed using a unique color.</p>
+</section>
+<section id="code-snippets-1" class="level2">
+<h2 class="anchored" data-anchor-id="code-snippets-1">Code Snippets</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">R</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<pre class="(.r)"><code># Create a CHM (Canopy Height Model) at 2 m resolution
+chm_plot2_2 &lt;- rasterize_canopy(plot2_norm, res = 2, p2r())
+
+# Locate tree tops using the local maxima filter (lmf)
+treetops_plot2_2 &lt;- locate_trees(chm_plot2_2, lmf(ws = 5, hmin = 2))
+
+# Segment trees using Dalponte2016 algorithm
+Plot2_trees_CHM_2 &lt;- segment_trees(plot2_norm, dalponte2016(chm = chm_plot2_2,
+                                                          treetops = treetops_plot2_2,
+                                                          th_tree = 2,     
+                                                          th_seed = 0.45,  
+                                                          th_cr = 0.55,    
+                                                          max_cr = 10))  </code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="plot-2-canopy-height-model-with-detected-tree-tops" class="level2">
+<h2 class="anchored" data-anchor-id="plot-2-canopy-height-model-with-detected-tree-tops">2.3 | Plot 2 Canopy Height Model with Detected Tree Tops</h2>
+<p>To make observations and analyses more intuitive, the treetops are displayed as a red cross in the figure below. They essentially represent the highest pixel values within a moving neighborhood, rather than necessarily being the highest pixels in the entire plot. The pros of the CHM-based approach include its computational efficiency compared to working with the full 3D point cloud, and its ease of use for treetop identification and tree crown formation. However, this approach would miss suppressed or understorey trees, since the CHM mainly represents the upper canopy surface. Small trees below dominant crowns might not be detected. In the same plot, I also tested the CHM with a coarser resolution (e.g.&nbsp;4 and 10 metres). However, tree top detection and segmentation became inaccurate and unreliable.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="coursework_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>*The color bar on the right indicates tree height.</p>
+</section>
+<section id="code-snippets-2" class="level2">
+<h2 class="anchored" data-anchor-id="code-snippets-2">Code Snippets</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">R</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<pre class="(.r)"><code># Convert tree tops to SpatialPoints
+treetops_sp_2_2 &lt;- as(treetops_plot2_2, "Spatial")
+
+# Base CHM plot
+plot(chm_plot2_2)
+
+# Overlay SpatialPoints
+plot(treetops_sp_2_2, add = TRUE, col = "red", pch = 3) </code></pre>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="multiple-linear-regression" class="level1">
+<h1>3 | Multiple Linear Regression</h1>
+<section id="statistical-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="statistical-data-analysis">3.1 | Statistical Data Analysis</h2>
+<p>In this lab, I needed to find a ‘good’ model to estimate the volume growth per hectare (i.e., the response variable) of upland Canadian boreal forests in southeast Canada, using three predictor variables including the basal area per hectare, the percentage of the basal area in black spruce, and the stand site index for the dominant species. First, I explored the dataset using summary statistics and scatterplots to gain a more in-depth understanding of how these variables relate to each other. This step helped identify patterns and potential relationships (e.g., a positive correlation between VOL_growth and BA).</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>   VOL_growth          BA         perBA_spruce         SI      
+ Min.   :1.130   Min.   : 9.60   Min.   :48.00   Min.   :29.0  
+ 1st Qu.:1.673   1st Qu.:14.80   1st Qu.:58.75   1st Qu.:40.0  
+ Median :1.870   Median :18.80   Median :72.00   Median :45.0  
+ Mean   :1.914   Mean   :18.59   Mean   :71.54   Mean   :45.5  
+ 3rd Qu.:2.203   3rd Qu.:23.00   3rd Qu.:81.25   3rd Qu.:51.5  
+ Max.   :2.660   Max.   :25.50   Max.   :96.00   Max.   :63.0  </code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="coursework_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>*Volume growth per hectare (VOL_growth), basal area per hectare (BA), percent of basal area in black spruce (perBA_spruce) &amp; stand site index for the dominant species (SI)</p>
+</section>
+<section id="regression-modelling-and-feature-engineering" class="level2">
+<h2 class="anchored" data-anchor-id="regression-modelling-and-feature-engineering">3.2 | Regression Modelling and Feature Engineering</h2>
+<p>Afterward, I attempted to build several multiple linear regression models to explain VOL_growth with various predictor variables. The model displayed below uses transformed BA and perBA_spruce (e.g., log and squared terms), which can make nonlinear regression relationship more linear and enhance model performance.</p>
+<p>The regression model was highly significant (F = 151.3, p &lt; 0.001) and explained 92.37% of the variation in VOL_growth (Adjusted R² = 0.9176). Both logBA and perBA_sprucesq were significant predictors (p &lt; 0.001). In short, logBA and perBA_sprucesq greatly influence VOL_growth.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = VOL_growth ~ logBA + perBA_sprucesq, data = A3data)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.306167 -0.070302  0.006863  0.078749  0.229866 
+
+Coefficients:
+                 Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)    -2.341e+00  2.518e-01  -9.294 1.38e-09 ***
+logBA           1.287e+00  8.197e-02  15.696 1.87e-14 ***
+perBA_sprucesq  1.009e-04  1.041e-05   9.686 6.08e-10 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.1151 on 25 degrees of freedom
+Multiple R-squared:  0.9237,    Adjusted R-squared:  0.9176 
+F-statistic: 151.3 on 2 and 25 DF,  p-value: 1.078e-14</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Analysis of Variance Table
+
+Response: VOL_growth
+               Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+logBA           1 2.76676 2.76676 208.773 1.218e-13 ***
+perBA_sprucesq  1 1.24340 1.24340  93.824 6.077e-10 ***
+Residuals      25 0.33131 0.01325                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
+</div>
+</div>
+</section>
+<section id="model-diagnostics-and-predictive-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="model-diagnostics-and-predictive-analysis">3.3 | Model Diagnostics and Predictive Analysis</h2>
+<p>I evaluated the models by examining residual and QQ plots and performing a Shapiro–Wilk test, to verify whether the regression assumptions (e.g.&nbsp;linearity, normality, homoscedasticity and independence) were satisfied. Model 3, which performed best, was selected to generate predictions and confidence intervals for new observations. This model predicts a volume growth of approximately 2.32 m³/ha, with a true mean value likely falling between 2.23 and 2.40 m³/ha at 95% confidence.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="coursework_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="coursework_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  A3data$stdresid.3
+W = 0.96711, p-value = 0.5056</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      fit      lwr     upr
+1 2.31519 2.232349 2.39803</code></pre>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
