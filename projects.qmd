@@ -675,3 +675,10 @@ lookup = {
     ...
 ```
 :::
+
+## 3.4 | Top Five Fuel Types on Mudge Island
+
+This chart shows the proportion of the five most common fuel types on Mudge Island. They are TL3 (Moderate Load Conifer Litter), TL5 (High Load Conifer Litter), TL1 (Low Load Compact Conifer Litter), TU1 (Low Load Dry Climate Timber–Grass–Shrub), and TL6 (Moderate Load Broadleaf Litter). These five fuel types occupied 64% of the island's total area (92% of the burnable vegetation area), equivalent to 1.9 km². Conifer-related fuel types (TL3, TL5, and TL1) accounted for 62% (1.8 km²) of the island's area. This is a large proportion, considering that the island’s total area is only 2.9 km².
+
+![](images/Rplot32.png){width=85% fig-align="center"}
+
