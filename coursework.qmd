@@ -1,215 +1,39 @@
 ---
 title: "Coursework"
-format: html
-editor: visual
+format:
+  html:
+    toc: false
+editor: source
 ---
 
-# 1 | City Suitability Mapping
+::: {.card-grid}
 
-This interactive map allows users to locate the best places to live or invest in Metro Vancouver. You can easily adjust 16 different lifestyle and environmental factors, such as distance to CBD, rent costs, school proximity, and air quality, based on your personal priorities. By moving the sliders, you can generate a personalized Suitability Index that instantly recolors the map to highlight top-performing neighborhoods. Meanwhile, you may indicate your preference regarding certain contentious factors—those which have always been subject to differing opinions. The final result is a ranked list of the top 10 areas that most closely match your ideal balance of benefits and costs.
+::: {.portfolio-card}
+[![](images/city_suitability.png)](coursework_city_suitability.html)
 
-```{=html}
-<iframe
-  src="https://kelvvin55.shinyapps.io/Van_Map/"
-  width="100%"
-  height="700"
-  style="border:0;">
-</iframe>
-```
+### [City Suitability Mapping](coursework_city_suitability.html)
 
-# 2 | Individual Tree Detection with LiDAR
-
-## 2.1 |　LiDAR Sample Plot Extraction
-
-In this lab, I explored the process of individual tree segmentation using LiDAR data. One general method is the Canopy Height Model (CHM), which detects individual trees based on 2D CHM information. The first step is LiDAR plot extraction and pre-processing. Circular sample plots with a radius of 77 m were clipped around pre-defined coordinates, and outliers below 0 m and above 65 m were removed. This process prepares clean, plot-level LiDAR datasets for tree detection and segmentation, though no trees are identified at this stage.
-
-```{=html}
-<iframe
-  src="https://kelvvin55.shinyapps.io/GEM521_Lab4/"
-  width="100%"
-  height="600"
-  style="border:0;">
-</iframe>
-```
-
-\*The color gradient represents elevation (e.g. blue for low points, green for mid canopy and yellow/red for high canopy).
-
-## Code Snippets
-
-::: {.panel-tabset group="language"}
-## R
-
-``` (.r)
-# Define plot radius
-radius <- 77
-
-# For loop to extract plots
-for(i in 1:nrow(plot_table)){
-  plot_id <- plot_table$Plot_ID[i]
-  
-  plot_las <- readLAS(paste0(data_path, "Plots/Plot_", plot_id, ".las"),
-                      filter = "-drop_z_below 0 -drop_z_above 65")
-  
-  las_clip <- clip_circle(plot_las, plot_table$X[i], plot_table$Y[i], radius)
-  
-  writeLAS(las_clip, paste0(data_path, "Plots/Plot_", plot_id, "_154m.las"))
-  
-  print(paste("Plot", plot_id, "points:", npoints(las_clip)))
-}
-```
+Interactive suitability mapping for Metro Vancouver using customizable environmental, accessibility, and lifestyle factors.
 :::
 
-## 2.2 | Plot 2 Tree Segmentation
+::: {.portfolio-card}
+[![](images/lidar.png)](coursework_lidar.html)
 
-A canopy height model (CHM) with a resolution of 2 m was generated from the normalized LiDAR point cloud. Tree tops were subsequently detected from the CHM using a local maximum filter. It identifies the highest pixel value as the treetop. These detected treetops were used as seed points for the Dalponte and Coomes (2016) algorithm, which segments individual tree crowns. In a nutshell, this algorithm identifies the full tree crown boundary.
+### [Individual Tree Detection with LiDAR](coursework_lidar.html)
 
-```{=html}
-<iframe
-  src="https://kelvvin55.shinyapps.io/Plot2/"
-  width="100%"
-  height="600"
-  style="border:0;">
-</iframe>
-```
-
-\*Each segmented tree is displayed using a unique color.
-
-## Code Snippets
-
-::: {.panel-tabset group="language"}
-## R
-
-``` (.r)
-# Create a CHM (Canopy Height Model) at 2 m resolution
-chm_plot2_2 <- rasterize_canopy(plot2_norm, res = 2, p2r())
-
-# Locate tree tops using the local maxima filter (lmf)
-treetops_plot2_2 <- locate_trees(chm_plot2_2, lmf(ws = 5, hmin = 2))
-
-# Segment trees using Dalponte2016 algorithm
-Plot2_trees_CHM_2 <- segment_trees(plot2_norm, dalponte2016(chm = chm_plot2_2,
-                                                          treetops = treetops_plot2_2,
-                                                          th_tree = 2,     
-                                                          th_seed = 0.45,  
-                                                          th_cr = 0.55,    
-                                                          max_cr = 10))  
-```
+LiDAR plot extraction, canopy height modelling, treetop detection, and individual tree crown segmentation.
 :::
 
-## 2.3 | Plot 2 Canopy Height Model with Detected Tree Tops
+::: {.portfolio-card}
+[![](images/mlr.png)](coursework_mlr.html)
 
-To make observations and analyses more intuitive, the treetops are displayed as a red cross in the figure below. They essentially represent the highest pixel values within a moving neighborhood, rather than necessarily being the highest pixels in the entire plot. The pros of the CHM-based approach include its computational efficiency compared to working with the full 3D point cloud, and its ease of use for treetop identification and tree crown formation. However, this approach would miss suppressed or understorey trees, since the CHM mainly represents the upper canopy surface. Small trees below dominant crowns might not be detected. In the same plot, I also tested the CHM with a coarser resolution (e.g. 4 and 10 metres). However, tree top detection and segmentation became inaccurate and unreliable.
+### [Multiple Linear Regression](coursework_mlr.html)
 
-```{r, echo=FALSE, fig.width=10, fig.height=8}
-# Set up library
-library(lidR)
-
-# Read the normalized las data
-plot2_norm <- readLAS("D:/Github/E-Portfolio_KelvinLee/Maps_Kelvin/Plot_2_154m_norm.las")
-
-# Create a CHM at 0.5 m resolution
-chm_plot2_0.5_p2r <- rasterize_canopy(plot2_norm, res = 0.5, p2r())
-
-# Locate tree tops
-treetops_plot2_0.5_p2r <- locate_trees(chm_plot2_0.5_p2r, lmf(ws = 5, hmin = 2))
-
-# Base CHM plot
-plot(chm_plot2_0.5_p2r)
-
-# Overlay treetops
-treetops_sp_2_0.5_p2r <- as(treetops_plot2_0.5_p2r, "Spatial")
-plot(treetops_sp_2_0.5_p2r, add = TRUE, col = "red", pch = 3)
-```
-
-\*The color bar on the right indicates tree height.
-
-## Code Snippets
-
-::: {.panel-tabset group="language"}
-## R
-
-``` (.r)
-# Convert tree tops to SpatialPoints
-treetops_sp_2_2 <- as(treetops_plot2_2, "Spatial")
-
-# Base CHM plot
-plot(chm_plot2_2)
-
-# Overlay SpatialPoints
-plot(treetops_sp_2_2, add = TRUE, col = "red", pch = 3) 
-```
+Statistical data analysis, regression modelling, diagnostics, and predictive analysis for forest growth estimation.
 :::
 
-# 3 | Multiple Linear Regression
+:::
 
-## 3.1 | Statistical Data Analysis
 
-In this lab, I needed to find a 'good' model to estimate the volume growth per hectare (i.e., the response variable) of upland Canadian boreal forests in southeast Canada, using three predictor variables including the basal area per hectare, the percentage of the basal area in black spruce, and the stand site index for the dominant species. First, I explored the dataset using summary statistics and scatterplots to gain a more in-depth understanding of how these variables relate to each other. This step helped identify patterns and potential relationships (e.g., a positive correlation between VOL_growth and BA).
 
-```{r, echo=FALSE, fig.width=10, fig.height=8}
-# Import dataset
-A3data <- read.csv("D:/Github/E-Portfolio_KelvinLee/Maps_Kelvin/A3.csv", header = TRUE, sep = ",")
 
-# Summary statistics
-summary(A3data)
-
-# Scatterplot matrix to explore relationships
-pairs(~ VOL_growth + BA + perBA_spruce + SI,
-      data = A3data,
-      main = "Scatterplot Matrix for Forest Growth Variables")
-```
-
-\*Volume growth per hectare (VOL_growth), basal area per hectare (BA), percent of basal area in black spruce (perBA_spruce) & stand site index for the dominant species (SI)
-
-## 3.2 | Regression Modelling and Feature Engineering
-
-Afterward, I attempted to build several multiple linear regression models to explain VOL_growth with various predictor variables. The model displayed below uses transformed BA and perBA_spruce (e.g., log and squared terms), which can make nonlinear regression relationship more linear and enhance model performance.
-
-The regression model was highly significant (F = 151.3, p \< 0.001) and explained 92.37% of the variation in VOL_growth (Adjusted R² = 0.9176). Both logBA and perBA_sprucesq were significant predictors (p \< 0.001). In short, logBA and perBA_sprucesq greatly influence VOL_growth.
-
-```{r, echo=FALSE, fig.width=10, fig.height=8}
-# Create transformed variables
-A3data$logBA <- log(A3data$BA)
-A3data$perBA_sprucesq <- A3data$perBA_spruce^2
-
-# Fit linear regression model
-model.3 <- lm(VOL_growth ~ logBA + perBA_sprucesq, data = A3data)
-
-# Model results
-summary(model.3)
-
-# ANOVA for model evaluation
-anova(model.3)
-```
-
-## 3.3 | Model Diagnostics and Predictive Analysis
-
-I evaluated the models by examining residual and QQ plots and performing a Shapiro–Wilk test, to verify whether the regression assumptions (e.g. linearity, normality, homoscedasticity and independence) were satisfied. Model 3, which performed best, was selected to generate predictions and confidence intervals for new observations. This model predicts a volume growth of approximately 2.32 m³/ha, with a true mean value likely falling between 2.23 and 2.40 m³/ha at 95% confidence.
-
-```{r, echo=FALSE, fig.width=10, fig.height=8}
-# Predicted values and residuals
-A3data$yhat.3 <- fitted(model.3)
-A3data$resid.3 <- resid(model.3)
-A3data$stdresid.3 <- resid(model.3)/summary(model.3)$sigma
-
-# Residual diagnostic plot
-plot(resid.3 ~ yhat.3, data = A3data,
-     xlab = "Predicted VOL_growth",
-     ylab = "Residuals",
-     main = "Residual Plot",
-     pch = 19)
-abline(a = 0, b = 0, col = "red")
-
-# Normality check (QQ plot)
-qqnorm(A3data$stdresid.3)
-qqline(A3data$stdresid.3, col = "red")
-
-# Shapiro-Wilk normality test
-shapiro.test(A3data$stdresid.3)
-
-# Prediction for new observation
-new <- data.frame(logBA = log(19.2),
-                  perBA_sprucesq = 92^2)
-
-predict(model.3, new, interval = "confidence", level = 0.95)
-```

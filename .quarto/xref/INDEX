@@ -31,5 +31,23 @@
   },
   "coursework.qmd": {
     "coursework.html": "3e2196f3"
+  },
+  "projects_storymaps.qmd": {
+    "projects_storymaps.html": "495da8b9"
+  },
+  "projects_disastermap.qmd": {
+    "projects_disastermap.html": "ef5f1a2c"
+  },
+  "projects_fuelmap.qmd": {
+    "projects_fuelmap.html": "5b55a0c9"
+  },
+  "coursework_city_suitability.qmd": {
+    "coursework_city_suitability.html": "f261e75b"
+  },
+  "coursework_lidar.qmd": {
+    "coursework_lidar.html": "2d081dc2"
+  },
+  "coursework_mlr.qmd": {
+    "coursework_mlr.html": "d09cd1ec"
   }
 }

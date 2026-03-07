@@ -1,6 +1,17 @@
 project:
   type: website
-  output-dir: D:\Github\E-Portfolio_KelvinLee
+  render:
+    - index.qmd
+    - resume.qmd
+    - projects.qmd
+    - projects_storymaps.qmd
+    - projects_disastermap.qmd
+    - projects_fuelmap.qmd
+    - coursework.qmd
+    - coursework_city_suitability.qmd
+    - coursework_lidar.qmd
+    - coursework_mlr.qmd
+    - publication.qmd
 
 website:
   title: "E-Portfolio"
@@ -8,7 +19,7 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: resume.qmd 
+      - href: resume.qmd
         text: Resume
       - href: projects.qmd
         text: Projects
@@ -16,7 +27,7 @@ website:
         text: Coursework
       - href: publication.qmd
         text: Publication
- 
+
 format:
   html:
     theme: litera
@@ -24,4 +35,3 @@ format:
     toc: true
 
 editor: visual
-

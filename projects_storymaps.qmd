@@ -1,0 +1,20 @@
+---
+title: "Individual Project"
+format: html
+editor: visual
+---
+
+# 1 | ArcGIS Storymaps - Mudge Island
+
+ArcGIS Storymaps - Mudge Island
+
+This StoryMap presents information on Mudge Island’s location, size, climate, vegetation, land cover, wildfire history and fuel types. It offers a comprehensive overview of the island’s physical landscape and fire-prone environment.
+
+```{=html}
+<iframe
+  src="https://storymaps.arcgis.com/stories/2d6ff354d545461ab333c26a8561cb4e"
+  width="100%"
+  height="700"
+  style="border:0;">
+</iframe>
+```
