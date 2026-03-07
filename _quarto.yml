@@ -1,17 +1,5 @@
 project:
   type: website
-  render:
-    - index.qmd
-    - resume.qmd
-    - projects.qmd
-    - projects_storymaps.qmd
-    - projects_disastermap.qmd
-    - projects_fuelmap.qmd
-    - coursework.qmd
-    - coursework_city_suitability.qmd
-    - coursework_lidar.qmd
-    - coursework_mlr.qmd
-    - publication.qmd
 
 website:
   title: "E-Portfolio"
@@ -27,11 +15,11 @@ website:
         text: Coursework
       - href: publication.qmd
         text: Publication
-        
+
 format:
   html:
     theme: litera
     css: styles.css
     toc: true
-    
+
 editor: visual
