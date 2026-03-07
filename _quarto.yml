@@ -28,11 +28,11 @@ website:
         text: Coursework
       - href: publication.qmd
         text: Publication
-
+        
 format:
   html:
     theme: litera
     css: styles.css
     toc: true
-
+    
 editor: visual
