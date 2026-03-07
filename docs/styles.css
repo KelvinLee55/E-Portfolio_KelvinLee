@@ -1,0 +1,297 @@
+/* ============================================================
+   E-Portfolio styles.css
+   Clean combined version
+   - Geomatics-inspired navbar
+   - Wider page layout
+   - Resume/two-column formatting
+   - Clean portfolio cards for Projects / Coursework
+   ============================================================ */
+
+
+/* ============================================================
+   1) Base page style
+   ============================================================ */
+
+body {
+  font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #2f3e2f;
+  background-color: #ffffff;
+}
+
+
+/* ============================================================
+   2) Global headings
+   ============================================================ */
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+  color: #1b3a2b;
+}
+
+
+/* ============================================================
+   3) Geomatics-style navbar
+   ============================================================ */
+
+.navbar {
+  font-size: 1.05rem;
+  background: linear-gradient(90deg, #1e3a5f, #244b7a) !important;
+  border-bottom: 3px solid #2d6a4f;
+}
+
+.navbar-brand {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #ffffff !important;
+}
+
+.navbar-nav .nav-link {
+  color: #e6eef7 !important;
+  font-weight: 500;
+  margin-right: 0.6rem;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+.navbar-nav .nav-link.active {
+  color: #ffffff !important;
+  border-bottom: 2px solid #80cfa9;
+}
+
+
+/* ============================================================
+   4) Links
+   ============================================================ */
+
+a {
+  color: #2d6a4f;
+}
+
+a:hover {
+  color: #1b4332;
+  text-decoration: underline;
+}
+
+
+/* ============================================================
+   5) Table of contents
+   ============================================================ */
+
+#TOC {
+  font-size: 0.95rem;
+  border-left: 3px solid #a5d6a7;
+  padding-left: 0.7rem;
+}
+
+
+/* ============================================================
+   6) Wider page layout
+   ============================================================ */
+
+@media (min-width: 992px) {
+  .container,
+  .container-sm,
+  .container-md,
+  .container-lg,
+  .container-xl,
+  .container-xxl {
+    max-width: 1280px !important;
+  }
+}
+
+.page-columns .content,
+.page-columns .page-layout-full .content,
+main.content,
+.content {
+  max-width: 1280px;
+}
+
+
+/* ============================================================
+   7) Main section titles
+   ============================================================ */
+
+#quarto-content h2,
+main h2,
+.content h2 {
+  font-size: 2rem !important;
+  font-weight: 800 !important;
+  margin-top: 2.4rem !important;
+  margin-bottom: 1.1rem !important;
+  border-bottom: 2px solid #e5e5e5 !important;
+  padding-bottom: 0.35rem !important;
+  color: #1e3a5f !important;
+}
+
+
+/* ============================================================
+   8) Subsection titles
+   ============================================================ */
+
+main h3,
+.content h3 {
+  font-size: 1.25rem;
+  font-weight: 650;
+  margin-top: 0.9rem;
+  margin-bottom: 0.35rem;
+  color: #1b3a2b;
+}
+
+
+/* Make the "About me..." title follow the same style */
+.quarto-about-trestles h2 {
+  border-bottom: 2px solid #e5e5e5 !important;
+  padding-bottom: 0.35rem !important;
+}
+
+
+/* ============================================================
+   9) Two-column layout for resume sections
+   ============================================================ */
+
+.columns {
+  column-gap: 3.5rem;
+  align-items: flex-start;
+}
+
+.columns > .column:first-child {
+  border-right: 1px solid #dcdcdc;
+  padding-right: 2.2rem;
+}
+
+.columns > .column:last-child {
+  padding-left: 2.2rem;
+}
+
+
+/* ============================================================
+   10) Resume blocks and bullets
+   ============================================================ */
+
+.cv-block {
+  margin-bottom: 1.25rem;
+}
+
+.cv-block ul {
+  margin: 0.35rem 0 0.9rem 0;
+  padding-left: 1.2rem;
+}
+
+.cv-block li {
+  margin: 0.25rem 0;
+}
+
+ul {
+  padding-left: 1.2rem;
+}
+
+li {
+  margin-bottom: 0.2rem;
+}
+
+
+/* ============================================================
+   11) Portfolio cards (Projects / Coursework)
+   ============================================================ */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  align-items: stretch;
+}
+
+.portfolio-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+  padding-bottom: 1rem;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+}
+
+.portfolio-card p:first-child {
+  margin: 0;
+}
+
+.portfolio-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Force card titles to stay black and bold */
+.card-grid .portfolio-card h3 {
+  margin: 1rem 1.2rem 0.5rem 1.2rem !important;
+  font-size: 1.25rem !important;
+  line-height: 1.3 !important;
+  font-weight: 700 !important;
+  color: #000000 !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+/* If the title itself is a link */
+.card-grid .portfolio-card h3 a {
+  color: #000000 !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+}
+
+.card-grid .portfolio-card h3 a:hover {
+  color: #000000 !important;
+  text-decoration: none !important;
+}
+
+/* Card description */
+.card-grid .portfolio-card p {
+  margin: 0 1.2rem !important;
+  font-size: 0.96rem !important;
+  line-height: 1.55 !important;
+  color: #666666 !important;
+}
+
+/* Remove link decoration inside cards */
+.portfolio-card a {
+  text-decoration: none !important;
+}
+
+.portfolio-card a:hover {
+  text-decoration: none !important;
+}
+
+
+/* ============================================================
+   12) Responsive layout
+   ============================================================ */
+
+@media (max-width: 1100px) {
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-card img {
+    height: 230px;
+  }
+}
